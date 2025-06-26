@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CardComponent } from './shared/components/card/card.component'; // ⬅️ Import du composant standalone
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CardComponent], 
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'Groups-Front';
+}
