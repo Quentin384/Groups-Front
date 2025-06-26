@@ -1,0 +1,28 @@
+.card {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: white;
+  transition: box-shadow 0.3s ease;
+
+  &-header {
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  &-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  &-bordered {
+    border: 1px solid #ddd;
+  }
+
+  &-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
