@@ -1,9 +1,9 @@
-/* /src/styles.scss /
+/* /src/styles.scss */
 
-/ 1) Reset global et fond violet partout */
+/* 1) Reset global et fond violet partout */
 *,
 *::before,
-::after {
+*::after {
   box-sizing: border-box;
 }
 

@@ -1,0 +1,150 @@
+/* Conteneur principal */
+.home {
+  width: 100%;                            // Prend toute la largeur disponible
+  min-height: calc(100vh - 4rem);         // Hauteur minimale : hauteur de la fenêtre moins 4rem (hauteur du header)
+  display: flex;                          // Utilise Flexbox pour organiser les enfants
+  flex-direction: column;                 // Aligne les enfants en colonne
+  padding: 4rem 1rem 1rem;                // Espace interne : 4rem en haut, 1rem à gauche/droite, 1rem en bas
+
+  /* Header fixe */
+  &__header {
+    position: fixed;                      // Position fixe par rapport à la fenêtre
+    top: 0; left: 0; right: 0;            // Collé en haut, s’étend de gauche à droite
+    height: 4rem;                         // Hauteur fixée à 4rem (≈64px)
+    background: #1f1525;                  // Couleur de fond foncée
+    display: flex;                        // Flexbox pour centrer le contenu
+    align-items: center;                  // Centre verticalement
+    justify-content: center;              // Centre horizontalement
+    font-weight: bold;                    // Texte en gras
+    color: #fff;                          // Couleur du texte blanche
+    z-index: 10;                          // Empilage au-dessus des autres éléments
+  }
+
+  /* Hero full-bleed avec overlay à 0.4 */
+  &__hero {
+    position: relative;                   // Conteneur relatif pour l’overlay
+    left: 50%;                            // Décalage horizontal de 50%
+    transform: translateX(-50%);          // Recentre de moitié de sa largeur (full-bleed)
+    width: 100vw;                         // Largeur égale à celle de la fenêtre
+    background:                             /* Image de fond centrée et couvrante */
+      url('https://plus.unsplash.com/premium_vector-1725434523080-caac9d20909c?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0')
+      no-repeat center/cover;
+    padding: 3.75rem 0 1.5rem;            // Espace interne : 3.75rem en haut (≈60px), 1.5rem en bas (≈24px)
+    text-align: center;                   // Texte centré
+    color: #fff;                          // Texte blanc
+
+    /* Overlay sombre à 0.4 */
+    &::before {
+      content: '';                        // Génère un pseudo-élément vide
+      position: absolute;                 // Positionné par rapport au .home__hero
+      top: 0; left: 0;                    // Collé à l’angle supérieur gauche
+      width: 100%; height: 100%;          // Recouvre entièrement le conteneur
+      background: rgba(0, 0, 0, 0.4);     // Fond noir semi-transparent (opacité 0.4)
+      z-index: 0;                         // Sous le contenu texte (z-index inférieur)
+    }
+
+    /* Texte au-dessus de l’overlay */
+    &-title,
+    &-subtitle,
+    &-actions {
+      position: relative;                 // Position relative pour passer au-dessus de l’overlay
+      z-index: 1;                         // Place ces éléments au-dessus de ::before
+    }
+
+    &-title {
+      font-size: 1.5rem;                  // Taille de police de 1.5rem
+      font-weight: 700;                   // Texte très épais
+      margin-bottom: 0.5rem;              // Marge inférieure de 0.5rem (≈8px)
+    }
+
+    &-subtitle {
+      font-size: 1rem;                    // Taille de police de 1rem
+      margin-bottom: 1rem;                // Marge inférieure de 1rem (≈16px)
+    }
+
+    &-actions {
+      display: flex;                      // Flexbox pour les boutons/actions
+      justify-content: center;            // Centre horizontalement
+      gap: 0.75rem;                       // Espacement de 0.75rem (≈12px) entre les éléments
+    }
+  }
+
+  /* Wrapper contenu hors Hero */
+  &__content {
+    width: 100%;                          // Largeur pleine
+    max-width: 25rem;                     // Largeur maximale de 25rem (≈400px)
+    margin: 2rem auto;                    // Centre horizontalement avec marge de 2rem en haut et bas (≈32px)
+    display: flex;                        // Flexbox vertical
+    flex-direction: column;               // Colonne
+    align-items: center;                  // Centre horizontal des enfants
+    gap: 3rem;                            // Espacement de 3rem (≈48px) entre les sections
+    padding: 0 1rem;                      // Padding latéral de 1rem (≈16px)
+  }
+
+  /* Section “Why Simplon?” */
+  &__features {
+    text-align: center;                   // Texte centré
+
+    &-cards {
+      display: grid;                      // Utilise CSS Grid pour les cartes
+      grid-template-columns: repeat(2, 1fr); // Deux colonnes de largeur égale
+      gap: 1rem;                          // Espacement de 1rem (≈16px) entre les cartes
+    }
+  }
+
+  /* Footer */
+  &__footer {
+    text-align: center;                   // Texte centré
+    margin-top: 4rem;                     // Marge haute de 4rem (≈64px)
+
+    a {
+      margin: 0 0.5rem;                   // Marge latérale de 0.5rem (≈8px)
+      font-size: 0.875rem;                // Taille de police réduite
+      color: #ccc;                        // Couleur gris clair
+      text-decoration: none;              // Supprime le soulignement
+    }
+
+    p {
+      margin-top: 0.5rem;                 // Marge haute de 0.5rem (≈8px)
+      font-size: 0.75rem;                 // Petite taille de police
+      color: #777;                        // Couleur gris moyen
+    }
+  }
+}
+
+/* Responsive >= 48rem (≈768px) */
+@media (min-width: 48rem) {
+  .home {
+    padding: 4rem 2rem 2rem;              // Ajuste le padding latéral à 2rem (≈32px)
+
+    &__hero {
+      /* Ajuste les marges de titre et sous-titre pour desktop */
+      &-title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;           // ≈12px
+      }
+
+      &-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;           // ≈20px
+      }
+    }
+
+    &__content {
+      max-width: 48rem;                   // ≈768px
+      gap: 4rem;                          // ≈64px
+      padding: 0 2rem;                    // ≈32px
+    }
+
+    &__features-cards {
+      grid-template-columns: repeat(3, 1fr); // Trois colonnes égales
+    }
+
+    &__footer {
+      margin-top: 6rem;                   // ≈96px
+      a {
+        margin: 0 1rem;                   // ≈16px
+      }
+    }
+  }
+}
