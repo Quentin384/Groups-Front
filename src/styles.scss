@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* /src/styles.scss */
+
+/* 1) Reset global et fond violet partout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #1f1525;  /* fond violet global */
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* 2) Vous pouvez aussi ajouter votre font par défaut ici */
+body {
+  font-family: system-ui, sans-serif;
+}
