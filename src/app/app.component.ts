@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component }                 from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { ButtonComponent }           from './shared/components/button/button.component';
+import { CardComponent }             from './shared/components/card/card.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    RouterOutlet,  // pour <router-outlet>
+    RouterLink,    // pour routerLink sur vos <a>
+    ButtonComponent,
+    CardComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Groups-Front';
-}
+export class AppComponent { }
