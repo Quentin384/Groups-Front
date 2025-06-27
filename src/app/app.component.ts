@@ -1,18 +1,12 @@
-import { Component }                 from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { ButtonComponent }           from './shared/components/button/button.component';
-import { CardComponent }             from './shared/components/card/card.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,  // pour <router-outlet>
-    RouterLink,    // pour routerLink sur vos <a>
-    ButtonComponent,
-    CardComponent
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
-export class AppComponent { }
+export class AppComponent {
+  title = 'GroupGenerateur';
+}
