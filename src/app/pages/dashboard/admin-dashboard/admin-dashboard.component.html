@@ -1,0 +1,93 @@
+<div class="admin-dashboard">
+  <h1 class="dashboard-title">Admin Dashboard</h1>
+
+  <!-- Affichage de l'alerte en cas d'erreur -->
+  <app-alert
+    *ngIf="errorMessage"
+    [type]="'error'"
+    [message]="errorMessage"
+    [dismissible]="true"
+    (closed)="closeAlert()">
+  </app-alert>
+
+  <!-- Loader pendant le chargement des données -->
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="loader"></div>
+    <p>Chargement des données...</p>
+  </div>
+
+  <!-- Contenu principal (affiché uniquement si pas de chargement) -->
+  <div *ngIf="!isLoading" class="dashboard-content">
+
+    <!-- Cartes statistiques -->
+    <div class="stats-cards">
+      <div class="stat-card">
+        <div class="stat-card-header">Total Groups</div>
+        <div class="stat-card-value">{{ stats?.totalGroups || 0 }}</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-header">Total Users</div>
+        <div class="stat-card-value">{{ stats?.totalUsers || 0 }}</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-header">Active Sessions</div>
+        <div class="stat-card-value">{{ stats?.activeSessions || 0 }}</div>
+      </div>
+    </div>
+
+    <!-- Liste des groupes récents -->
+    <div class="recent-groups-section">
+      <h2>Groupes récents</h2>
+
+      <table class="groups-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Membres</th>
+            <th>Date de création</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let group of recentGroups">
+            <td>{{ group.id }}</td>
+            <td>{{ group.name }}</td>
+            <td>{{ group.members }}</td>
+            <td>{{ group.createdAt | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <span class="status-badge" [ngClass]="{'active': group.status === 'active', 'inactive': group.status === 'inactive'}">
+                {{ group.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination simple -->
+      <div class="pagination">
+        <button
+          [disabled]="currentPage === 1"
+          (click)="changePage(currentPage - 1)"
+          class="pagination-btn">
+          Précédent
+        </button>
+
+        <span class="page-info">
+          Page {{ currentPage }} / {{ Math.ceil(totalGroups / pageSize) }}
+        </span>
+
+        <button
+          [disabled]="currentPage >= Math.ceil(totalGroups / pageSize)"
+          (click)="changePage(currentPage + 1)"
+          class="pagination-btn">
+          Suivant
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin-dashboard.component.html -->
