@@ -1,0 +1,19 @@
+<!-- Conteneur principal de la carte -->
+<div class="card" [ngClass]="{
+  'card-bordered': bordered,
+  'card-shadow': shadow
+}">
+  <!-- En-tête de la carte, s'affiche seulement si un titre ou un sous-titre est fourni -->
+  <div class="card-header" *ngIf="title || subtitle">
+    <!-- Titre (optionnel) -->
+    <h2 *ngIf="title" class="card-title">{{ title }}</h2>
+
+    <!-- Sous-titre (optionnel) -->
+    <p *ngIf="subtitle" class="card-subtitle">{{ subtitle }}</p>
+  </div>
+
+  <!-- Contenu injecté dans la carte (via ng-content) -->
+  <div class="card-content">
+    <ng-content></ng-content> <!-- Le contenu HTML entre <app-card> ... </app-card> -->
+  </div>
+</div>

@@ -1,0 +1,202 @@
+@use "sass:color";
+
+/* Variables */
+$primary-color: #3ABAF4;
+$success-color: #C7EA46;
+$error-color: #F75C4B;
+$warning-color: #FFC107;
+$text-color: #333;
+$border-color: #e0e0e0;
+$background-color: #f8f9fa;
+$card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+/* Styles généraux */
+.admin-dashboard {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: $text-color;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid $primary-color;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Cartes statistiques */
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: $card-shadow;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.stat-card-header {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.stat-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+/* Section des groupes récents */
+.recent-groups-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: $card-shadow;
+  width: 100%;
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: $text-color;
+  }
+}
+
+/* Table des groupes */
+.groups-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    background-color: $background-color;
+    font-weight: 600;
+    color: #666;
+  }
+
+  tr:hover {
+    background-color: rgba($primary-color, 0.05);
+  }
+}
+
+/* Badges de statut */
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.active {
+    background-color: rgba($success-color, 0.2);
+    color: color.adjust($success-color, $lightness: -20%);
+  }
+
+  &.inactive {
+    background-color: rgba($error-color, 0.2);
+    color: color.adjust($error-color, $lightness: -10%);
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  background-color: white;
+  border: 1px solid $border-color;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.page-info {
+  margin: 0 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive - Mobile First */
+.stats-cards {
+  flex-direction: column;
+}
+
+.groups-table {
+  display: block;
+  overflow-x: auto;
+}
+
+/* Styles pour écrans plus larges */
+@media (min-width: 768px) {
+  .stats-cards {
+    flex-direction: row;
+  }
+
+  .groups-table {
+    display: table;
+    overflow-x: visible;
+  }
+}
+
+/* Admin-dashboard.component.scss */

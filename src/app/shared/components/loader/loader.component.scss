@@ -1,0 +1,69 @@
+/* CM SPINNER */
+/* Cette partie définit le spinner principal (le cercle externe) */
+.cm-spinner {
+  height: 150px;               /* Hauteur : 150 pixels */
+  width: 150px;                /* Largeur  : 150 pixels */
+  border: 3px solid transparent; /* Bordure de 3 px, invisible (transparent) sur tout le pourtour */
+  border-radius: 50%;          /* Transforme le carré en cercle (rayon = 50 % de la taille) */
+  border-top: 4px solid #f15e41; /* Bordure supérieure de 4 px, couleur rouge-orangé */
+  position: relative;          /* Permet aux pseudo-éléments ::before et ::after de se positionner relativement à ce conteneur */
+  animation: spin 4s linear infinite; 
+    /* Applique l’animation ‘spin’ :
+       - durée : 4 secondes
+       - fonction de timing : linéaire (vitesse constante)
+       - infinite : se répète indéfiniment */
+}
+
+/* On crée deux cercles plus petits superposés au centre du spinner principal */
+.cm-spinner::before,
+.cm-spinner::after {
+  content: "";                 /* Nécessaire pour créer l’élément, même vide */
+  position: absolute;          /* Positionnement absolu par rapport à .cm-spinner */
+  inset: 6px;                  /* raccourci pour top/right/bottom/left = 6px (marge intérieure) */
+  border-radius: 50%;          /* Cercle parfait */
+  border: 4px solid transparent; /* Bordure de 4 px, invisible par défaut */
+}
+
+/* Premier cercle intérieur */
+.cm-spinner::before {
+  border-top-color: #bad375;   /* Bordure supérieure de couleur vert clair */
+  animation: spin 3s linear infinite;
+    /* Même animation que le parent, mais plus rapide (3s) */
+}
+
+/* Deuxième cercle intérieur */
+.cm-spinner::after {
+  border-top-color: #26a9e0;   /* Bordure supérieure de couleur bleu vif */
+  animation: spin 1.5s linear infinite;
+    /* Animation encore plus rapide (1,5s) pour l’effet d’emboîtement dynamique */
+}
+
+/* Variante réduite : un spinner plus petit, utilisable ailleurs */
+.spinner-7 {
+  width: 60px;                 /* Largeur : 60 px */
+  height: 60px;                /* Hauteur : 60 px */
+  margin: 0 auto;              /* Centre horizontalement dans son conteneur parent */
+  border-top: 4px solid #fff;  /* Bordure supérieure blanche de 4 px */
+  border-right: 4px solid transparent; 
+    /* Bordure droite invisible pour donner l’impression de « moitié vide » */
+  border-radius: 50%;          /* Cercle parfait */
+  animation: spinBorder 1s linear infinite;
+    /* Animation ‘spinBorder’ :
+       - durée : 1 seconde
+       - infinite : en boucle */
+}
+
+/* Définition de l’animation ‘spin’ partagée par plusieurs éléments */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+      /* À la fin de l’animation, on fait une rotation complète (360°) */
+  }
+}
+
+/* Définition de l’animation ‘spinBorder’ (identique à spin) */
+@keyframes spinBorder {
+  to {
+    transform: rotate(360deg);
+  }
+}
