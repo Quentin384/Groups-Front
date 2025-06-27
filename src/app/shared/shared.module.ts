@@ -20,4 +20,5 @@ import { AlertComponent } from './components/alert/alert.component';
     AlertComponent
   ]
 })
+
 export class SharedModule { }
