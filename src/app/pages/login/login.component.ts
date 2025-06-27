@@ -1,12 +1,31 @@
 import { CommonModule } from '@angular/common';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppInputComponent } from '../../shared/components/input/input.component';
 
 @Component({
-  selector: '',
+  selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule,AppInputComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+export class Login {
+  loginForm: FormGroup;
 
-export class Login {}
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+        fullName: ['', [Validators.required, Validators.minLength(3)]],  // <-- nouveau champ
+
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+  onSubmit() {
+  if (this.loginForm.valid) {
+    console.log(this.loginForm.value);
+    // Traiter la connexion ici
+  }
+}
+
+}

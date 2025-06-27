@@ -1,4 +1,19 @@
-  <title>Login</title>
-<body>
+ 
+ <h1 >Welcom Back</h1>
+<form [formGroup]="loginForm">
+  <app-input
+    label="email"
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+  />
 
-</body>
+  <app-input
+    label="Mot de passe"
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+  />
+</form>
+
+<!-- <app-button label="Login" color="primary" [routerLink]="['/myList']"></app-button> -->

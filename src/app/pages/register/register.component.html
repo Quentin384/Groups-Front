@@ -1,4 +1,29 @@
-<title>Register</title>
-<body>
+<div class="head">
+<app-button label="retour" color="secondary" [back]="true"></app-button> 
+  <h1 >Sign up</h1>
+</div>
 
-</body>
+<form [formGroup]="loginForm">
+    <app-input
+    label="Full Name"
+    type="text"
+    placeholder="Full name"
+    formControlName="fullName"
+  ></app-input>
+
+  <app-input
+    label="email"
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+  />
+
+  <app-input
+    label="Mot de passe"
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+  />
+</form>
+
+<!-- <app-button label="Verify Email" color="secondary[routerLink]="['/VerifyEmail']""></app-button> -->

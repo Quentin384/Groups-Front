@@ -1,0 +1,28 @@
+:host {
+  display: block; // important pour que la largeur soit respectée
+  width: 90%; // largeur de ton composant input
+  margin: 0 auto 1.5rem auto; // centre horizontalement + espace en bas
+  font-family: system-ui, sans-serif;
+
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #330057; // Violet foncé
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  background-color: #3b293b;
+  color: white;
+
+  border: none;
+  outline: none;
+}
