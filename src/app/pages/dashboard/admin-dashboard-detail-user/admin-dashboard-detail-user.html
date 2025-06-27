@@ -1,0 +1,41 @@
+<section *ngIf="group$ | async as group" class="p-6 space-y-6">
+  <h2 class="text-2xl font-bold">{{ group.name }}</h2>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse bg-white shadow rounded">
+      <thead>
+        <tr class="bg-gray-100 text-sm text-left">
+          <th class="p-3">Photo</th>
+          <th class="p-3">Nom</th>
+          <th class="p-3">Niveau&nbsp;Langue</th>
+          <th class="p-3">Niveau&nbsp;Tech.</th>
+          <th class="p-3">Ancien&nbsp;DWWN</th>
+          <th class="p-3">Profil</th>
+          <th class="p-3">Âge</th>
+          <th class="p-3 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of group.members" class="border-t text-sm">
+          <td class="p-3">
+            <img [src]="m.photo"
+                 alt="{{ m.firstName }} {{ m.lastName }}"
+                 class="w-10 h-10 rounded-full object-cover" />
+          </td>
+          <td class="p-3">{{ m.firstName }} {{ m.lastName }}</td>
+          <td class="p-3">{{ m.languageLevel }}</td>
+          <td class="p-3">{{ m.techLevel }}/5</td>
+          <td class="p-3">{{ m.isFormerDwwn ? 'Oui' : 'Non' }}</td>
+          <td class="p-3">{{ m.profile }}</td>
+          <td class="p-3">{{ m.age }}</td>
+          <td class="p-3 text-center">
+            <button class="btn-primary"
+                    (click)="openEdit(m.id)">
+              ✏️ Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

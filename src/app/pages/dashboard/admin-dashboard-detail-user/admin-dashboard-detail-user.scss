@@ -1,0 +1,26 @@
+/* Ajustements visuels rapides — libre à toi de personnaliser */
+
+table {
+  th, td {
+    white-space: nowrap;
+  }
+
+  th {
+    font-weight: 600;
+  }
+}
+
+.btn-primary {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: #2563eb;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
