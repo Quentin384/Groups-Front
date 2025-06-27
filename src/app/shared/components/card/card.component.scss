@@ -1,7 +1,11 @@
+$card-bg: rgba(59, 41, 59, 0.8);        // Fond violet translucide
+$card-border: rgba(255, 255, 255, 0.2); // Bordure blanche à 20 % d’opacité
+$card-subtitle: rgba(255, 255, 255, 0.6);// Texte secondaire blanc semi-transparent
+
 .card {
   padding: 1rem;
   border-radius: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
+  background-color: $card-bg;
   transition: box-shadow 0.3s ease;
 
   &-header {
@@ -15,11 +19,11 @@
 
   &-subtitle {
     font-size: 0.9rem;
-    color: #666;
+    color: $card-subtitle;
   }
 
   &-bordered {
-    border: 1px solid #ddd;
+    border: 1px solid $card-border;
   }
 
   &-shadow {
