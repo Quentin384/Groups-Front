@@ -1,6 +1,6 @@
 <div class="head">
-<app-button label="retour" color="secondary" [back]="true"></app-button> 
-  <h1 >Sign up</h1>
+  <app-back-button></app-back-button>
+  <h1>Sign up</h1>
 </div>
 
 <form [formGroup]="loginForm">
@@ -26,4 +26,11 @@
   />
 </form>
 
-<!-- <app-button label="Verify Email" color="secondary[routerLink]="['/VerifyEmail']""></app-button> -->
+<app-button
+  label="Sign Up"
+  color="primary"
+/>
+ <!-- [routerLink]="['  METTRE LA BONNE ROUTE  '] -->
+
+<a class="HaveAccount" routerLink="/login">
+  Already have an account? Sign in </a>

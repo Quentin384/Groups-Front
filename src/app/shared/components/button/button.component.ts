@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Location } from '@angular/common';
+
 
 /**
  * Composant de bouton standalone.
@@ -16,7 +16,6 @@ import { Location } from '@angular/common';
 })
 export class ButtonComponent {
 
-    constructor(private location: Location) {}
 
   /**
    * Texte affiché sur le bouton
@@ -41,12 +40,5 @@ export class ButtonComponent {
    * @default 'primary'
    */
   @Input() color: 'primary' | 'secondary' | 'danger' = 'primary';
-
-  @Input() back: boolean = false; // << nouveau input
-
-  onClick(): void {
-    if (this.back) {
-      this.location.back(); // ← revient en arrière dans l'historique
-    }
-  }
+  
 }

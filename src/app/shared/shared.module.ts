@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
+import { BackButtonComponent } from './components/back.button/back.button.component';
 import { AlertComponent } from './components/alert/alert.component';
 
 /**
@@ -12,7 +13,8 @@ import { AlertComponent } from './components/alert/alert.component';
   imports: [
     CommonModule,
     ButtonComponent,
-    AlertComponent
+    AlertComponent,
+    BackButtonComponent
   ],
   exports: [
     CommonModule,

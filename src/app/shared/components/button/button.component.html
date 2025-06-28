@@ -3,7 +3,6 @@
   [disabled]="disabled"
   [ngClass]="color"
   class="btn"
-  (click)="onClick()"
 >
   {{ label }}
 </button>
@@ -11,17 +10,11 @@
 
 
 <!-- 
+
   Boutons réutilisables créés avec le composant <app-button>
   Chaque bouton reçoit des inputs différents (label, type, couleur, disabled)
   Utilisé dans différentes parties de l'application : formulaires, actions, etc.
--->
-
-<!-- 
-<app-button label="Sign Up" color="primary" [routerLink]="['/login']"></app-button>
-<app-button label="Verify Email" color="secondary""></app-button>
-<app-button label="Login" color="primary" [routerLink]="['/myList']"></app-button>
-<app-button label="Add Member" color="primary" AddMember()></app-button>
-<app-button label="Retour" color="secondary" [back]="true"></app-button> <i class="bi bi-arrow-left"></i> {{ label }}
-
+  Exemple : <app-button label="Sign Up"color="primary"/>
 
 -->
+

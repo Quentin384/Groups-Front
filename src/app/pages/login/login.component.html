@@ -1,5 +1,8 @@
- 
+ <div class="head">
+  <app-back-button></app-back-button>
  <h1 >Welcom Back</h1>
+</div>
+
 <form [formGroup]="loginForm">
   <app-input
     label="email"
@@ -16,4 +19,12 @@
   />
 </form>
 
-<!-- <app-button label="Login" color="primary" [routerLink]="['/myList']"></app-button> -->
+<a class="Password-text" >
+  forgot Password? </a>
+<!-- [routerLink]="['/  EMAIL A ENVOYER  '] -->
+
+<app-button
+  label="Login"
+  color="primary"
+  />
+ <!-- [routerLink]="['  METTRE LA BONNE ROUTE  '] -->
