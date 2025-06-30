@@ -1,4 +1,30 @@
-  <title>Login</title>
-<body>
+ <div class="head">
+  <app-back-button></app-back-button>
+ <h1 >Welcom Back</h1>
+</div>
 
-</body>
+<form [formGroup]="loginForm">
+  <app-input
+    label="email"
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+  />
+
+  <app-input
+    label="Mot de passe"
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+  />
+</form>
+
+<a class="Password-text" >
+  forgot Password? </a>
+<!-- [routerLink]="['/  EMAIL A ENVOYER  '] -->
+
+<app-button
+  label="Login"
+  color="primary"
+  />
+ <!-- [routerLink]="['  METTRE LA BONNE ROUTE  '] -->

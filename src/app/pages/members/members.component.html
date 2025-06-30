@@ -1,0 +1,101 @@
+<main class="add-member">
+  <!-- Retour au dashboard -->
+  <a routerLink="/dashboard" class="back">&larr; Retour</a>
+
+  <h1>Ajouter un membre</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Nom -->
+    <label for="name">Nom</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Nom"
+      minlength="4"
+      maxlength="49"
+    />
+    <p class="error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+      Le nom doit comporter entre 4 et 49 caractères.
+    </p>
+
+    <!-- Genre -->
+    <label for="genre">Genre</label>
+    <select id="genre" formControlName="genre">
+      <option value="" disabled>Masculin / Féminin / Autre</option>
+      <option value="MASCULIN">Masculin</option>
+      <option value="FEMININ">Féminin</option>
+      <option value="NE_SE_PRONONCE_PAS">Ne se prononce pas</option>
+    </select>
+    <p class="error" *ngIf="form.get('genre')?.invalid && form.get('genre')?.touched">
+      Veuillez sélectionner un genre.
+    </p>
+
+    <!-- Aisance Français -->
+    <label for="aisanceFrancais">Aisance Français</label>
+    <select id="aisanceFrancais" formControlName="level">
+      <option value="" disabled>1 à 4</option>
+      <option *ngFor="let n of [1,2,3,4]" [value]="n">
+        Aisance FR {{ n }}/4
+      </option>
+    </select>
+    <p class="error" *ngIf="form.get('level')?.invalid && form.get('level')?.touched">
+      Veuillez indiquer votre aisance en français.
+    </p>
+
+    <!-- Ancien DWWM -->
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        formControlName="ancienDW"
+      />
+      Ancien DWWM
+    </label>
+
+    <!-- Niveau Technique -->
+    <label for="technical">Niveau Technique</label>
+    <select id="technical" formControlName="technical">
+      <option value="" disabled>1 à 4</option>
+      <option *ngFor="let n of [1,2,3,4]" [value]="n">
+        Tech {{ n }}/4
+      </option>
+    </select>
+    <p class="error" *ngIf="form.get('technical')?.invalid && form.get('technical')?.touched">
+      Veuillez sélectionner votre niveau technique.
+    </p>
+
+    <!-- Profil -->
+    <label for="profile">Profil</label>
+    <select id="profile" formControlName="profile">
+      <option value="" disabled>Timide / Réservé / À l’aise</option>
+      <option value="TIMIDE">Timide</option>
+      <option value="RESERVE">Réservé</option>
+      <option value="A_L_AISE">À l’aise</option>
+    </select>
+    <p class="error" *ngIf="form.get('profile')?.invalid && form.get('profile')?.touched">
+      Veuillez sélectionner un profil.
+    </p>
+
+    <!-- Âge -->
+    <label for="age">Âge</label>
+    <input
+      id="age"
+      type="number"
+      formControlName="age"
+      placeholder="Âge"
+      min="1"
+      max="99"
+    />
+    <p class="error" *ngIf="form.get('age')?.invalid && form.get('age')?.touched">
+      L’âge doit être compris entre 1 et 99 ans.
+    </p>
+
+    <!-- Bouton -->
+    <app-button
+      type="submit"
+      label="Ajouter"
+      color="primary"
+      [disabled]="form.invalid"
+    ></app-button>
+  </form>
+</main>
