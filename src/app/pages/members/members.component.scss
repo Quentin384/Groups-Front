@@ -1,3 +1,5 @@
+/* src/app/pages/members/members.component.scss */
+
 .add-member {
   display: flex;
   flex-direction: column;
@@ -6,18 +8,22 @@
   background: transparent;
   color: #fff;
 
-  /* BACK BUTTON & TITLE */
-  .back {
-    align-self: flex-start;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
+  /* Le BackButtonComponent apporte son propre style */
+  /* On retire ici l’ancien style .back */
+
+  .fleche {
+    margin-right: 1.5rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   h1 {
     font-size: 1.75rem;
-    margin-bottom: 2rem;
   }
 
   form {
@@ -27,90 +33,65 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    /* Étiquettes (labels) légèrement espacés */
-    label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      display: block;
-    }
-
-    /* Tous les inputs/selects partagent ces styles */
+    /* Fallback pour <input> et <select> natifs */
     input,
-    select,
-    .checkbox input {
+    select {
       width: 100%;
-      height: 3rem;                      /* champs hauts et confortables */
+      height: 3rem;
       padding: 0 1rem;
-      border: none;                      /* pas de bordure visible */
-      border-radius: 0.75rem;            /* arrondi prononcé */
-      background-color: #3b293b;         /* violet un peu plus clair */
-      color: #fff;                       /* texte blanc */
+      border: none;
+      border-radius: 0.75rem;
+      background-color: #3b293b;
+      color: #fff;
       font-size: 1rem;
       line-height: 1.2;
-      transition: background 0.2s ease,
-                  box-shadow 0.2s ease;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Placeholder plus discret */
     input::placeholder,
     select::placeholder {
       color: rgba(255, 255, 255, 0.6);
     }
 
-    /* Focus : soulignement léger ou ombre interne */
-    input:focus,
-    select:focus {
+    /* Masquage du contour rouge natif */
+    input:invalid,
+    select:invalid {
+      box-shadow: none !important;
+    }
+    input:focus:invalid,
+    select:focus:invalid {
       outline: none;
-      box-shadow: inset 0 0 0 2px #f15e41; /* accent magenta/orange */
+      box-shadow: none !important;
     }
 
-    /* Checkbox label : aligne au centre */
-    .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      label {
-        margin: 0;     /* on supprime le margin-bottom par défaut */
-      }
-
-      /* Inverse couleur pour la case et le texte */
-      input {
-        width: auto;
-        height: auto;
-        accent-color: #f15e41; /* couleur du check */
-      }
-    }
-
-    /* Message d’erreur */
     .error {
-      color: #e74c3c;         /* rouge léger */
+      color: #e74c3c;
       font-size: 0.8rem;
       margin-top: -0.5rem;
       margin-bottom: 0.5rem;
     }
 
-    /* Bouton de soumission */
     app-button {
       margin-top: 1rem;
       width: 100%;
-      border-radius: 0.75rem;
       height: 3rem;
+      border-radius: 0.75rem;
     }
   }
 }
 
-/* ============= Responsive >768px ============= */
 @media (min-width: 768px) {
   .add-member {
     padding: 2rem;
+
     h1 {
       font-size: 2rem;
       margin-bottom: 2.5rem;
     }
+
     form {
       gap: 2rem;
+
       app-button {
         height: 3.5rem;
       }
