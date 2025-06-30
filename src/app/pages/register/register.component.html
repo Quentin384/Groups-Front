@@ -1,4 +1,36 @@
-<title>Register</title>
-<body>
+<div class="head">
+  <app-back-button></app-back-button>
+  <h1>Sign up</h1>
+</div>
 
-</body>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <app-input
+    label="Full Name"
+    type="text"
+    placeholder="Full name"
+    formControlName="fullName"
+  ></app-input>
+
+  <app-input
+    label="email"
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+  />
+
+  <app-input
+    label="Mot de passe"
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+  />
+
+  <app-button
+    label="Sign Up"
+    color="primary"
+    type="submit"
+  />
+</form>
+
+<a class="HaveAccount" routerLink="/login">
+  Already have an account? Sign in </a>

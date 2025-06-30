@@ -1,0 +1,100 @@
+/* src/app/pages/members/members.component.scss */
+
+.add-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: transparent;
+  color: #fff;
+
+  /* Le BackButtonComponent apporte son propre style */
+  /* On retire ici l’ancien style .back */
+
+  .fleche {
+    margin-right: 1.5rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    /* Fallback pour <input> et <select> natifs */
+    input,
+    select {
+      width: 100%;
+      height: 3rem;
+      padding: 0 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      background-color: #3b293b;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.2;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input::placeholder,
+    select::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Masquage du contour rouge natif */
+    input:invalid,
+    select:invalid {
+      box-shadow: none !important;
+    }
+    input:focus:invalid,
+    select:focus:invalid {
+      outline: none;
+      box-shadow: none !important;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    app-button {
+      margin-top: 1rem;
+      width: 100%;
+      height: 3rem;
+      border-radius: 0.75rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .add-member {
+    padding: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    form {
+      gap: 2rem;
+
+      app-button {
+        height: 3.5rem;
+      }
+    }
+  }
+}

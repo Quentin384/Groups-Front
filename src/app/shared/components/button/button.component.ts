@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 /**
  * Composant de bouton standalone.
  *
@@ -14,6 +15,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
+
+
   /**
    * Texte affiché sur le bouton
    * @default 'Bouton'
@@ -37,4 +40,5 @@ export class ButtonComponent {
    * @default 'primary'
    */
   @Input() color: 'primary' | 'secondary' | 'danger' = 'primary';
+  
 }
