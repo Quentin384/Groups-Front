@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-admin-dashboard-detail-user',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './admin-dashboard-detail-user.html',
-  styleUrls: ['./admin-dashboard-detail-user.scss']
+  templateUrl: './user-dashboard-detail-user.html',
+  styleUrls: ['./user-dashboard-detail-user.scss']
 })
 export class AdminDashboardDetailUserComponent {
   group = {
