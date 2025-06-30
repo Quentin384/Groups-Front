@@ -1,0 +1,20 @@
+
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #330057; // Violet foncé
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #3b293b;
+  color: white;
+  border: none;
+  outline: none;
+}
