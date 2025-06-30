@@ -6,6 +6,8 @@
 Groups-Front/
 ├─ docs/
 │   ├─ wireframes/
+│   │   ├─ maquette_1.PNG
+│   │   └─ maquette_2.PNG
 │   ├─ specifications/
 │   │   └─ Briefs_projet_fil_rouge-Création-de-groupes.pdf
 │   └─ README.md
@@ -23,6 +25,11 @@ Groups-Front/
 │   │       └─ auth.spec.ts
 │   ├─ cypress.config.ts
 │   └─ tsconfig.json
+│
+├─ node_modules/                  # Dependencies directory
+│
+├─ public/                        # Public assets directory
+│   └─ favicon.ico
 │
 ├─ src/
 │   ├─ app/
@@ -140,6 +147,18 @@ Groups-Front/
 │   │   │   │   ├─ login.component.scss
 │   │   │   │   └─ login.component.spec.ts
 │   │   │   │
+│   │   │   ├─ register/
+│   │   │   │   ├─ register.component.ts
+│   │   │   │   ├─ register.component.html
+│   │   │   │   ├─ register.component.scss
+│   │   │   │   └─ register.component.spec.ts
+│   │   │   │
+│   │   │   ├─ home/
+│   │   │   │   ├─ home.component.ts
+│   │   │   │   ├─ home.component.html
+│   │   │   │   ├─ home.component.scss
+│   │   │   │   └─ home.component.spec.ts
+│   │   │   │
 │   │   │   ├─ dashboard/
 │   │   │   │   ├─ dashboard.component.ts
 │   │   │   │   ├─ dashboard.component.html
@@ -156,7 +175,7 @@ Groups-Front/
 │   │   ├─ app.component.scss
 │   │   ├─ app.component.spec.ts
 │   │   ├─ app.config.ts
-│   │   └─ app-routing.module.ts
+│   │   └─ app.routes.ts
 │   │
 │   ├─ assets/                         # ressources statiques
 │   │   ├─ images/
