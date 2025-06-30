@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // ✅ CE IMPORT
+import { RouterModule, Router } from '@angular/router'; // Import Router for navigation
 import { Component } from '@angular/core';
+import { AuthService } from '../../core/services/auth.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppInputComponent } from '../../shared/components/input/input.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
@@ -11,19 +12,23 @@ import { BackButtonComponent } from '../../shared/components/back.button/back.bu
   standalone: true,
   imports:
    [CommonModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     AppInputComponent,
-    ButtonComponent, 
+    ButtonComponent,
     BackButtonComponent,
     RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class Register {
-  loginForm: FormGroup;
+  registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.registerForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],  // <-- nouveau champ
 
       email: ['', [Validators.required, Validators.email]],
@@ -31,9 +36,12 @@ export class Register {
     });
   }
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // Traiter la connexion ici
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+      // Traiter l'inscription ici
+
+      // Navigate to verify email page after successful registration
+      this.router.navigate(['/verifyemail']);
     }
   }
 }

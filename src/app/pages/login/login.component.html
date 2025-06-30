@@ -1,6 +1,6 @@
  <div class="head">
   <app-back-button></app-back-button>
- <h1 >Welcom Back</h1>
+ <h1>Welcome Back</h1>
 </div>
 
 <form [formGroup]="loginForm">
@@ -19,12 +19,11 @@
   />
 </form>
 
-<a class="Password-text" >
-  forgot Password? </a>
-<!-- [routerLink]="['/  EMAIL A ENVOYER  '] -->
+<a class="Password-text" routerLink="/verifyemail">
+  forgot Password?</a>
 
 <app-button
   label="Login"
   color="primary"
+  routerLink="/dashboard/user"
   />
- <!-- [routerLink]="['  METTRE LA BONNE ROUTE  '] -->

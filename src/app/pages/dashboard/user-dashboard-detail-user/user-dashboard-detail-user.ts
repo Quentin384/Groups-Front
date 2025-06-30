@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-dashboard-detail-user',
+  selector: 'app-user-dashboard-detail-user',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './user-dashboard-detail-user.html',
   styleUrls: ['./user-dashboard-detail-user.scss']
 })
-export class AdminDashboardDetailUserComponent {
+export class UserDashboardDetailUserComponent {
   group = {
     name: 'Team Phoenix',
     members: [

@@ -1,0 +1,58 @@
+<main class="list-page">
+  <header class="list-page__header">
+    <a routerLink="/" class="back-link">&larr; Retour</a>
+    <h1 class="list-page__title">Groupes d'étude</h1>
+  </header>
+
+  <section class="list-page__content">
+    <div class="list-page__filters">
+      <h2 class="list-page__subtitle">Filtres</h2>
+      <div class="filters-container">
+        <select class="filter-select">
+          <option value="">Tous les niveaux</option>
+          <option value="Beginner">Débutant</option>
+          <option value="Intermediate">Intermédiaire</option>
+          <option value="Advanced">Avancé</option>
+        </select>
+        <input type="text" placeholder="Rechercher un groupe..." class="filter-search">
+      </div>
+    </div>
+
+    <div class="list-page__items">
+      <div *ngFor="let item of items" class="list-item">
+        <div class="list-item__content">
+          <h3 class="list-item__title">{{ item.name }}</h3>
+          <p class="list-item__description">{{ item.description }}</p>
+          <div class="list-item__details">
+            <span class="list-item__members">{{ item.members }} membres</span>
+            <span class="list-item__level">Niveau: {{ item.level }}</span>
+          </div>
+        </div>
+        <div class="list-item__actions">
+          <app-button
+            label="Voir détails"
+            color="primary"
+            type="button"
+            (click)="viewGroupProfile(item.id)">
+          </app-button>
+        </div>
+      </div>
+
+      <div *ngIf="items.length === 0" class="no-items">
+        <p>Aucun groupe trouvé. Veuillez ajuster vos filtres ou créer un nouveau groupe.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="list-page__actions">
+    <a routerLink="/profile/new">
+      <app-button
+        label="Créer un groupe"
+        color="secondary"
+        type="button">
+      </app-button>
+    </a>
+  </div>
+</main>
+
+<!-- List.component.html -->
