@@ -1,0 +1,35 @@
+.head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-right: 39%;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 5%;
+    gap: 1rem;
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    font-family: system-ui, sans-serif;
+}
+
+.HaveAccount {
+    display: block;
+    margin-top: 15rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #794f79;
+    text-decoration: underline;
+
+}

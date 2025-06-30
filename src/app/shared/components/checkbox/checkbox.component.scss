@@ -1,0 +1,24 @@
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #f15e41;
+    cursor: pointer;
+  }
+
+  .checkbox-label {
+    font-size: 1rem;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  input[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

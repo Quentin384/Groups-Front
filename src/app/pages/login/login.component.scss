@@ -1,0 +1,36 @@
+.head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-right: 31%;
+
+}
+h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    font-family: system-ui, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 5%;
+    gap: 1rem;
+    width: 100%;
+}
+
+.Password-text {
+    display: block;
+    // text-align: center;
+    margin-left: 5%;
+    font-size: 0.95rem;
+    color: #794f79;
+    text-decoration: underline;
+
+}
+
+

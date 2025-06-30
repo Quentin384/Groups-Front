@@ -1,0 +1,142 @@
+<main class="profile-page">
+  <header class="profile-page__header">
+    <a routerLink="/list" class="back-link">&larr; Retour à la liste</a>
+    <h1 class="profile-page__title" *ngIf="mode === 'view'">{{ groupProfile.name }}</h1>
+    <h1 class="profile-page__title" *ngIf="mode === 'edit'">Modifier le groupe</h1>
+    <h1 class="profile-page__title" *ngIf="mode === 'new'">Créer un nouveau groupe</h1>
+  </header>
+
+  <!-- Vue -->
+  <section class="profile-page__content" *ngIf="mode === 'view'">
+    <div class="profile-card">
+      <div class="profile-card__header">
+        <h2 class="profile-card__name">{{ groupProfile.name }}</h2>
+        <div class="profile-card__meta">
+          <span class="profile-card__level">Niveau: {{ groupProfile.level }}</span>
+          <span class="profile-card__members">{{ groupProfile.currentMembers }}/{{ groupProfile.maxMembers }} membres</span>
+        </div>
+      </div>
+
+      <div class="profile-card__section">
+        <h3 class="profile-card__section-title">Description</h3>
+        <p class="profile-card__description">{{ groupProfile.description }}</p>
+      </div>
+
+      <div class="profile-card__section">
+        <h3 class="profile-card__section-title">Sujets</h3>
+        <div class="profile-card__topics">
+          <span class="topic-tag" *ngFor="let topic of groupProfile.topics">{{ topic }}</span>
+        </div>
+      </div>
+
+      <div class="profile-card__section">
+        <h3 class="profile-card__section-title">Informations</h3>
+        <div class="profile-card__info">
+          <p>Créé par: {{ groupProfile.createdBy }}</p>
+          <p>Date de création: {{ groupProfile.createdDate }}</p>
+        </div>
+      </div>
+
+      <div class="profile-card__actions">
+        <app-button
+          label="Rejoindre le groupe"
+          color="primary"
+          type="button"
+          (click)="joinGroup()"
+          [disabled]="groupProfile.currentMembers >= groupProfile.maxMembers">
+        </app-button>
+        <app-button
+          label="Modifier"
+          color="secondary"
+          type="button"
+          (click)="toggleEditMode()">
+        </app-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Edit/NEW -->
+  <section class="profile-page__content" *ngIf="mode === 'edit' || mode === 'new'">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="profile-form">
+      <!-- Nom du groupe -->
+      <label for="name">Nom du groupe</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Nom du groupe"
+      />
+      <p class="error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+        Le nom doit comporter entre 4 et 50 caractères.
+      </p>
+
+      <!-- Description -->
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        placeholder="Description du groupe"
+        rows="4"
+      ></textarea>
+      <p class="error" *ngIf="form.get('description')?.invalid && form.get('description')?.touched">
+        La description doit comporter au moins 10 caractères.
+      </p>
+
+      <!-- Niveau -->
+      <label for="level">Niveau</label>
+      <select id="level" formControlName="level">
+        <option value="" disabled>Sélectionnez un niveau</option>
+        <option value="Beginner">Débutant</option>
+        <option value="Intermediate">Intermédiaire</option>
+        <option value="Advanced">Avancé</option>
+      </select>
+      <p class="error" *ngIf="form.get('level')?.invalid && form.get('level')?.touched">
+        Veuillez sélectionner un niveau.
+      </p>
+
+      <!-- Nombre maximum de membres -->
+      <label for="maxMembers">Nombre maximum de membres</label>
+      <input
+        id="maxMembers"
+        type="number"
+        formControlName="maxMembers"
+        min="2"
+        max="20"
+      />
+      <p class="error" *ngIf="form.get('maxMembers')?.invalid && form.get('maxMembers')?.touched">
+        Le nombre de membres doit être compris entre 2 et 20.
+      </p>
+
+      <!-- Sujets -->
+      <label for="topics">Sujets (séparés par des virgules)</label>
+      <input
+        id="topics"
+        type="text"
+        formControlName="topics"
+        placeholder="Angular, TypeScript, RxJS"
+      />
+      <p class="error" *ngIf="form.get('topics')?.invalid && form.get('topics')?.touched">
+        Veuillez saisir au moins un sujet.
+      </p>
+
+      <!-- Boutons -->
+      <div class="form-actions">
+        <app-button
+          label="Annuler"
+          color="secondary"
+          type="button"
+          (click)="toggleEditMode()"
+          *ngIf="mode === 'edit'">
+        </app-button>
+        <app-button
+          [label]="mode === 'new' ? 'Créer' : 'Enregistrer'"
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid">
+        </app-button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<!-- Profile.component.html -->

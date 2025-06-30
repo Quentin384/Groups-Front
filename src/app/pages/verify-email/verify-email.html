@@ -1,0 +1,18 @@
+<section class="verify-container">
+  <a routerLink="/login" class="back-link">&larr; Retour à la connexion</a>
+  <div class="verify-card">
+    <img
+      src="/assets/images/email-illustration.png"
+      alt="Email sent"
+      class="illustration"
+    />
+
+    <h1 class="title">Welcome to Simplon!</h1>
+    <p class="subtitle">
+      Hi Alex, thanks for signing up.<br />
+      Please verify your email to activate your account.
+    </p>
+
+    <button class="verify-btn" (click)="onVerify()">Verify Email</button>
+  </div>
+</section>
