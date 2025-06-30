@@ -11,12 +11,12 @@
 //  title = 'GroupGenerateur';
 //}
 import { Component } from '@angular/core';
-import { AdminDashboardDetailAdminComponent } from './pages/dashboard/admin-dashboard-detail-admin/admin-dashboard-detail-admin';
+import { AdminDashboardDetailUserComponent } from './pages/dashboard/admin-dashboard-detail-user/admin-dashboard-detail-user';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AdminDashboardDetailAdminComponent],
-  template: `<app-admin-dashboard-detail-admin />`
+  imports: [AdminDashboardDetailUserComponent],
+  template: `<app-admin-dashboard-detail-user />`
 })
 export class AppComponent {}

@@ -2,11 +2,9 @@
   background-color: #1c0f2b;
   color: #fff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   padding: 1.5rem;
-  position: relative;
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
 
   .header {
     display: flex;
@@ -35,7 +33,7 @@
 
   .section-title {
     font-size: 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     font-weight: 500;
   }
 
@@ -47,28 +45,47 @@
 
   .member-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 0.75rem;
     background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
 
     .avatar {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       object-fit: cover;
     }
 
     .member-info {
+      flex-grow: 1;
+
       .name {
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
       }
 
-      .role {
+      .sub-info {
         font-size: 0.85rem;
         color: #bfaed9;
+        line-height: 1.4;
+      }
+    }
+
+    .edit-btn {
+      background: none;
+      border: none;
+      color: #a347e4;
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 0;
+      align-self: start;
+
+      &:hover {
+        color: #c065f0;
       }
     }
   }
@@ -84,7 +101,7 @@
     border-radius: 9999px;
     font-weight: bold;
     font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 
     &:hover {

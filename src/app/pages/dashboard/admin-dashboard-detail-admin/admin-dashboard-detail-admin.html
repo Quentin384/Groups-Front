@@ -5,19 +5,29 @@
   </header>
 
   <div class="content">
-    <h2 class="list-name">Training Session 1</h2>
+    <h2 class="list-name">{{ group.name }}</h2>
     <h3 class="section-title">Members</h3>
 
     <ul class="member-list">
       <li *ngFor="let m of group.members" class="member-card">
         <img [src]="m.photo" alt="{{ m.firstName }} {{ m.lastName }}" class="avatar" />
+
         <div class="member-info">
           <p class="name">{{ m.firstName }} {{ m.lastName }}</p>
-          <p class="role">Trainee</p>
+          <p class="sub-info">
+            Langue : {{ m.languageLevel }}<br />
+            Technique : {{ m.techLevel }}/5<br />
+            Ancien DWWN : {{ m.isFormerDwwn ? 'Oui' : 'Non' }}<br />
+            Profil : {{ m.profile }}<br />
+            Âge : {{ m.age }} ans
+          </p>
         </div>
+
+        <button class="edit-btn" (click)="openEdit(m.id)">✏️</button>
       </li>
     </ul>
   </div>
 
   <button class="add-btn">＋ Add Member</button>
 </section>
+
