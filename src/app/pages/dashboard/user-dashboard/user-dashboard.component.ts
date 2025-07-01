@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, Router } from '@angular/router';
 import { AlertComponent } from '../../../shared/components/alert/alert.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { of, Observable, throwError } from 'rxjs';
@@ -24,9 +25,14 @@ interface UserGroup {
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, AlertComponent, ButtonComponent]
+  imports: [CommonModule, AlertComponent, ButtonComponent, RouterLink]
 })
 export class UserDashboardComponent implements OnInit {
+  /**
+   * Constructeur avec injection du Router
+   */
+  constructor(private router: Router) {}
+
   /**
    * Indique si les données sont en cours de chargement
    */
@@ -81,8 +87,9 @@ export class UserDashboardComponent implements OnInit {
    * @param groupId Identifiant du groupe
    */
   viewGroupDetails(groupId: number): void {
-    /* Dans une implémentation réelle, cette méthode naviguerait vers la page de détails du groupe */
-    console.log(`Affichage des détails du groupe ${groupId}`);
+    /* Navigation vers la page de détails du groupe */
+    this.router.navigate(['/dashboard/user/userdetail']);
+    console.log(`Navigation vers les détails du groupe ${groupId}`);
   }
 
   /**

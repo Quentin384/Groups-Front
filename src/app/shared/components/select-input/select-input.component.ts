@@ -6,35 +6,36 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
+export interface Option {
+  value: string;
+  label: string;
+}
+
 @Component({
-  selector: 'app-input',
+  selector: 'app-select-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  templateUrl: './select-input.component.html',
+  styleUrls: ['./select-input.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => AppInputComponent),
+    useExisting: forwardRef(() => SelectInputComponent),
     multi: true
   }]
 })
-export class AppInputComponent implements ControlValueAccessor {
+export class SelectInputComponent implements ControlValueAccessor {
   @Input() id          = '';
   @Input() label       = '';
-  @Input() type        = 'text';
-  @Input() placeholder = '';
-  @Input() minlength?  : number;
-  @Input() maxlength?  : number;
-  @Input() min?        : number;
-  @Input() max?        : number;
+  @Input() options: Option[] = [];
+  @Input() placeholder = 'Sélectionner…';
+  @Input() disabled    = false;
 
-  value: string = '';
-
+  value: string | null = null;
   private onChange: (v: any) => void = () => {};
   private onTouched: () => void      = () => {};
 
   writeValue(obj: any): void {
-    this.value = obj != null ? String(obj) : '';
+    this.value = obj;
   }
 
   registerOnChange(fn: any): void {
@@ -45,13 +46,14 @@ export class AppInputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  onInput(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.value = input.value;
-    const output = this.type === 'number'
-      ? (input.value === '' ? null : +input.value)
-      : input.value;
-    this.onChange(output);
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  onSelect(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    this.value = select.value;
+    this.onChange(this.value);
   }
 
   onBlur(): void {

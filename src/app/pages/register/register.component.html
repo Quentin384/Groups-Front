@@ -3,7 +3,7 @@
   <h1>Sign up</h1>
 </div>
 
-<form [formGroup]="loginForm">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <app-input
     label="Full Name"
     type="text"
@@ -24,13 +24,13 @@
     formControlName="password"
     placeholder="Password"
   />
-</form>
 
-<app-button
-  label="Sign Up"
-  color="primary"
-/>
- <!-- [routerLink]="['  METTRE LA BONNE ROUTE  '] -->
+  <app-button
+    label="Sign Up"
+    color="primary"
+    type="submit"
+  />
+</form>
 
 <a class="HaveAccount" routerLink="/login">
   Already have an account? Sign in </a>

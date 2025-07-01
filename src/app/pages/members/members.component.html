@@ -1,101 +1,102 @@
-<main class="add-member">
-  <!-- Retour au dashboard -->
-  <a routerLink="/dashboard" class="back">&larr; Retour</a>
+<!-- src/app/pages/members/members.component.html -->
 
+<main class="add-member">
+
+  <div class="row">
+  
+  <div class="fleche"> 
+    <app-back-button></app-back-button>
+  </div>
+  
   <h1>Ajouter un membre</h1>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <!-- Nom -->
-    <label for="name">Nom</label>
-    <input
+  </div>
+  <!-- Composant de retour réutilisable -->
+
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+    <app-input
       id="name"
-      type="text"
       formControlName="name"
+      label="Nom"
+      type="text"
       placeholder="Nom"
-      minlength="4"
-      maxlength="49"
-    />
+      [minlength]="4"
+      [maxlength]="49">
+    </app-input>
     <p class="error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
       Le nom doit comporter entre 4 et 49 caractères.
     </p>
 
-    <!-- Genre -->
-    <label for="genre">Genre</label>
-    <select id="genre" formControlName="genre">
-      <option value="" disabled>Masculin / Féminin / Autre</option>
-      <option value="MASCULIN">Masculin</option>
-      <option value="FEMININ">Féminin</option>
-      <option value="NE_SE_PRONONCE_PAS">Ne se prononce pas</option>
-    </select>
+    <app-select-input
+      id="genre"
+      formControlName="genre"
+      label="Genre"
+      [options]="genres"
+      placeholder="Masculin / Féminin / Autre">
+    </app-select-input>
     <p class="error" *ngIf="form.get('genre')?.invalid && form.get('genre')?.touched">
       Veuillez sélectionner un genre.
     </p>
 
-    <!-- Aisance Français -->
-    <label for="aisanceFrancais">Aisance Français</label>
-    <select id="aisanceFrancais" formControlName="level">
-      <option value="" disabled>1 à 4</option>
-      <option *ngFor="let n of [1,2,3,4]" [value]="n">
-        Aisance FR {{ n }}/4
-      </option>
-    </select>
+    <app-select-input
+      id="aisanceFrancais"
+      formControlName="level"
+      label="Aisance Français"
+      [options]="aisances"
+      placeholder="1 à 4">
+    </app-select-input>
     <p class="error" *ngIf="form.get('level')?.invalid && form.get('level')?.touched">
       Veuillez indiquer votre aisance en français.
     </p>
 
-    <!-- Ancien DWWM -->
-    <label class="checkbox">
-      <input
-        type="checkbox"
-        formControlName="ancienDW"
-      />
-      Ancien DWWM
-    </label>
+    <app-checkbox
+      id="ancienDW"
+      formControlName="ancienDW"
+      label="Ancien DWWM">
+    </app-checkbox>
 
-    <!-- Niveau Technique -->
-    <label for="technical">Niveau Technique</label>
-    <select id="technical" formControlName="technical">
-      <option value="" disabled>1 à 4</option>
-      <option *ngFor="let n of [1,2,3,4]" [value]="n">
-        Tech {{ n }}/4
-      </option>
-    </select>
+    <app-select-input
+      id="technical"
+      formControlName="technical"
+      label="Niveau Technique"
+      [options]="technicalLevels"
+      placeholder="1 à 4">
+    </app-select-input>
     <p class="error" *ngIf="form.get('technical')?.invalid && form.get('technical')?.touched">
       Veuillez sélectionner votre niveau technique.
     </p>
 
-    <!-- Profil -->
-    <label for="profile">Profil</label>
-    <select id="profile" formControlName="profile">
-      <option value="" disabled>Timide / Réservé / À l’aise</option>
-      <option value="TIMIDE">Timide</option>
-      <option value="RESERVE">Réservé</option>
-      <option value="A_L_AISE">À l’aise</option>
-    </select>
+    <app-select-input
+      id="profile"
+      formControlName="profile"
+      label="Profil"
+      [options]="profiles"
+      placeholder="Timide / Réservé / À l’aise">
+    </app-select-input>
     <p class="error" *ngIf="form.get('profile')?.invalid && form.get('profile')?.touched">
       Veuillez sélectionner un profil.
     </p>
 
-    <!-- Âge -->
-    <label for="age">Âge</label>
-    <input
+    <app-input
       id="age"
-      type="number"
       formControlName="age"
+      label="Âge"
+      type="number"
       placeholder="Âge"
-      min="1"
-      max="99"
-    />
+      [min]="1"
+      [max]="99">
+    </app-input>
     <p class="error" *ngIf="form.get('age')?.invalid && form.get('age')?.touched">
       L’âge doit être compris entre 1 et 99 ans.
     </p>
 
-    <!-- Bouton -->
     <app-button
       type="submit"
       label="Ajouter"
       color="primary"
-      [disabled]="form.invalid"
-    ></app-button>
+      [disabled]="form.invalid">
+    </app-button>
   </form>
 </main>

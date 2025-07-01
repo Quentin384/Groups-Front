@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { of, Observable, throwError } from 'rxjs';
 import { catchError, delay, finalize } from 'rxjs/operators';
 import { CommonModule, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { AlertComponent } from '../../../shared/components/alert/alert.component';
 
 /**
@@ -32,7 +33,7 @@ interface Group {
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, AlertComponent, DatePipe]
+  imports: [CommonModule, AlertComponent, DatePipe, RouterLink]
 })
 export class AdminDashboardComponent implements OnInit {
   /**
