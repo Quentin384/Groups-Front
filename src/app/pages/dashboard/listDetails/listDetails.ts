@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ButtonComponent }           from '../../../shared/components/button/button.component';
+import { CardComponent }             from '../../../shared/components/card/card.component';
 
 @Component({
   selector: 'app-admin-dashboard-detail-admin',
   standalone: true,
-  imports: [CommonModule, RouterLink, ButtonComponent],
+  imports: [CommonModule, RouterLink, ButtonComponent, CardComponent],
   templateUrl: './listDetails.html',
   styleUrls: ['./listDetails.scss']
 })
