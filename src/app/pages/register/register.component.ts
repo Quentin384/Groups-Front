@@ -5,7 +5,6 @@ import { AuthService } from '../../core/services/auth.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppInputComponent } from '../../shared/components/input/input.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
-import { BackButtonComponent } from '../../shared/components/back.button/back.button.component'
 
 @Component({
   selector: 'app-register',
@@ -15,7 +14,6 @@ import { BackButtonComponent } from '../../shared/components/back.button/back.bu
     ReactiveFormsModule,
     AppInputComponent,
     ButtonComponent,
-    BackButtonComponent,
     RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
