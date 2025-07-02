@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { VerifyEmailComponent } from './pages/verify-email/verify-email';
+import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from "./shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [VerifyEmailComponent],
-  template: `<app-verify-email />`
+  imports: [RouterOutlet, FooterComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'GroupGenerateur';
+}
 

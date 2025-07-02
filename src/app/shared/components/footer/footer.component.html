@@ -1,0 +1,29 @@
+<footer class="bg-gray-900 text-white text-center p-4 mt-12 text-sm relative">
+  <div class="mb-2">
+    © 2025 - Projet de La Débauche - Simplon
+  </div>
+  <div class="space-x-4">
+    <a href="https://github.com/votre-repo" target="_blank" class="hover:underline">GitHub</a>
+    <span>•</span>
+    <a href="#" (click)="openLegalModal()" class="hover:underline">Mentions légales</a>
+    <span>•</span>
+    <a href="#" class="hover:underline">Contact</a>
+  </div>
+
+  <!-- Modal Mentions légales -->
+  <div *ngIf="showLegalModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="text-lg font-bold mb-2">Mentions légales</h2>
+      <p class="text-sm text-gray-700 text-left">
+        Ceci est un projet pédagogique réalisé dans le cadre de la formation Simplon.<br />
+        Aucune donnée personnelle n’est collectée ou conservée.<br />
+        Le contenu présenté est fictif et à usage non commercial.<br />
+        Pour toute question : contact&#64;simplon.co
+      </p>
+
+      <button class="mt-4 bg-red-600 text-white px-3 py-1 rounded" (click)="closeLegalModal()">
+        Fermer
+      </button>
+    </div>
+  </div>
+</footer>
