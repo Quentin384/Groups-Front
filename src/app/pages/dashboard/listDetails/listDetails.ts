@@ -6,7 +6,7 @@ import { ButtonComponent }           from '../../../shared/components/button/but
 @Component({
   selector: 'app-admin-dashboard-detail-admin',
   standalone: true,
-  imports: [CommonModule, RouterLink, ButtonComponent],
+  imports: [CommonModule, RouterLink, ButtonComponent,],
   templateUrl: './listDetails.html',
   styleUrls: ['./listDetails.scss']
 })

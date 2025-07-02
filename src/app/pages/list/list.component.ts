@@ -7,9 +7,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 interface ListItem {
   id: number;
   name: string;
-  description: string;
   members: number;
-  level: string;
 }
 
 @Component({
@@ -18,7 +16,7 @@ interface ListItem {
   imports: [
     CommonModule,
     RouterLink,
-    ButtonComponent
+    ButtonComponent,
   ],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
@@ -29,30 +27,22 @@ export class ListComponent implements OnInit {
     {
       id: 1,
       name: 'Angular Study Group',
-      description: 'A group for learning Angular framework together',
       members: 5,
-      level: 'Intermediate'
     },
     {
       id: 2,
       name: 'JavaScript Basics',
-      description: 'For beginners who want to learn JavaScript fundamentals',
       members: 8,
-      level: 'Beginner'
     },
     {
       id: 3,
       name: 'Advanced Web Development',
-      description: 'Deep dive into modern web development techniques',
       members: 3,
-      level: 'Advanced'
     },
     {
       id: 4,
       name: 'UI/UX Design Group',
-      description: 'Focus on user interface and experience design',
       members: 6,
-      level: 'Intermediate'
     }
   ];
 
@@ -70,4 +60,3 @@ export class ListComponent implements OnInit {
   }
 }
 
-/* List.component.ts */

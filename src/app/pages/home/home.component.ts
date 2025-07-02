@@ -7,7 +7,7 @@ import { CardComponent }             from '../../shared/components/card/card.com
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterLink,    // pour routerLink sur vos <a>
+    RouterLink,   
     ButtonComponent,
     CardComponent
   ],
