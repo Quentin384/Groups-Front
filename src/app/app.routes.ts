@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AdminDashboardComponent } from './pages/dashboard/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './pages/dashboard/user-dashboard/user-dashboard.component';
+import { GroupesComponent } from './pages/groupes/groupes.component';
 import { listDetails } from './pages/dashboard/listDetails/listDetails';
 import { Login } from './pages/login/login.component';
 import { Register } from './pages/register/register.component';
@@ -12,7 +12,7 @@ import { ListComponent } from './pages/list/list.component';
 
 export const routes: Routes = [
   { path: 'dashboard/admin', component: AdminDashboardComponent },
-  { path: 'dashboard/user', component: UserDashboardComponent },
+  { path: 'groupes', component: GroupesComponent },
   { path: 'list/details', component: listDetails },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
