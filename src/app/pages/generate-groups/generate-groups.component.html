@@ -1,0 +1,38 @@
+<app-alert
+    *ngIf="showAlert"
+    [message]="alertMessage"
+    (close)="showAlert = false">
+</app-alert>
+
+<div class="generate-container">
+    <h1>Groupe Generation</h1>
+
+    <label class="label-title">
+        Specify the number of groups to generate
+    </label>
+    <input type="number"
+    [(ngModel)]="numberOfGroups"
+    placeholder="Enter number of groups"
+    min="1"
+    class="input-group"
+    />
+
+</div>
+
+<h2>Mixing Criteria</h2>
+
+<div class="criteria-list">
+    <label>
+        Mix Former DWWN
+        <input type="checkbox" [(ngModel)]="criteria.mixFormerDWWN" />
+    </label>
+
+    <label>
+        Mix Ages
+        <input type="checkbox" [(ngModel)]="criteria.mixAges" />    
+    </label>
+
+    <button (click)="generateGroups()" class="btn-genrate">
+        generate Groups
+    </button>
+</div>
