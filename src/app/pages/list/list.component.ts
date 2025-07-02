@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ButtonComponent } from '../../shared/components/button/button.component';
-import { CardComponent }             from '../../shared/components/card/card.component';
 
 /* Interface pour les éléments de la liste */
 interface ListItem {
@@ -18,7 +17,6 @@ interface ListItem {
     CommonModule,
     RouterLink,
     ButtonComponent,
-    CardComponent
   ],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
