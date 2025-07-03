@@ -9,6 +9,7 @@ import { Members } from './pages/members/members.component';
 import { VerifyEmailComponent } from './pages/verify-email/verify-email';
 import { ListComponent } from './pages/list/list.component';
 import { GenerateGroupsComponent } from './pages/generate-groups/generate-groups.component';
+import { error } from './pages/error/error.component';
 
 
 export const routes: Routes = [
@@ -22,4 +23,5 @@ export const routes: Routes = [
   { path: 'verifyemail', component: VerifyEmailComponent, data: { title: 'Verify Email' } },
   { path: 'list', component: ListComponent, data: { title: 'List' } },
   { path: 'generate-groups', component: GenerateGroupsComponent, data: { title: 'Generate Groups' } },
+  { path: '**', component: error , data: { title: 'Error' } },
 ];
