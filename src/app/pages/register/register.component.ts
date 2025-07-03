@@ -5,6 +5,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppInputComponent } from '../../shared/components/input/input.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import { RouterLink }                 from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ import { ButtonComponent } from '../../shared/components/button/button.component
     ReactiveFormsModule,
     AppInputComponent,
     ButtonComponent,
-    RouterModule],
+    RouterModule,
+  RouterLink],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
