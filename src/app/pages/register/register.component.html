@@ -1,10 +1,17 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <app-input
-    label="Full Name"
+    label="Nom"
     type="text"
-    placeholder="Full name"
-    formControlName="fullName"
+    placeholder="Nom de famille"
+    formControlName="nom"
+  ></app-input>
+
+  <app-input
+    label="Prénom"
+    type="text"
+    placeholder="Prénom"
+    formControlName="prenom"
   ></app-input>
 
   <app-input
