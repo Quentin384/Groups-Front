@@ -14,7 +14,6 @@ import { AppInputComponent }      from '../../shared/components/input/input.comp
 import { SelectInputComponent }   from '../../shared/components/select-input/select-input.component';
 import { AppCheckboxComponent }   from '../../shared/components/checkbox/checkbox.component';
 import { ButtonComponent }        from '../../shared/components/button/button.component';
-import { BackButtonComponent }    from '../../shared/components/back.button/back.button.component';
 
 interface Option {
   value: string;
@@ -30,8 +29,7 @@ interface Option {
     AppInputComponent,
     SelectInputComponent,
     AppCheckboxComponent,
-    ButtonComponent,
-    BackButtonComponent      
+    ButtonComponent,    
   ],
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.scss']

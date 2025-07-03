@@ -1,8 +1,4 @@
 <section class="admin-detail">
-  <header class="header">
-    <a routerLink="/dashboard/admin" class="back-btn">←</a>
-    <h1 class="title">List Details</h1>
-  </header>
 
   <div class="content">
     <h2 class="list-name">{{ group.name }}</h2>
@@ -28,5 +24,18 @@
     </ul>
   </div>
 
-  <button class="add-btn">＋ Add Member</button>
+          <a routerLink="/members">
+          <app-button
+            label="Ajouter des membres"
+            color="secondary"
+            type="button">
+          </app-button>
+          </a>
+          <a routerLink="/generate-groups">
+        <app-button
+          [label]="'Créer un groupe'"
+          [color]="'primary'">
+        </app-button>
+      </a>
+
 </section>

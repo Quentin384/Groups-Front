@@ -1,5 +1,5 @@
 import { Component }                 from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink }                 from '@angular/router';
 import { ButtonComponent }           from '../../shared/components/button/button.component';
 import { CardComponent }             from '../../shared/components/card/card.component';
 
@@ -7,7 +7,7 @@ import { CardComponent }             from '../../shared/components/card/card.com
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterLink,    // pour routerLink sur vos <a>
+    RouterLink,   
     ButtonComponent,
     CardComponent
   ],

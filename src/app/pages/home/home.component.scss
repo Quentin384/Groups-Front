@@ -6,20 +6,6 @@
   flex-direction: column;                 // Aligne les enfants en colonne
   padding: 4rem 1rem 1rem;                // Espace interne : 4rem en haut, 1rem à gauche/droite, 1rem en bas
 
-  /* Header fixe */
-  &__header {
-    position: fixed;                      // Position fixe par rapport à la fenêtre
-    top: 0; left: 0; right: 0;            // Collé en haut, s’étend de gauche à droite
-    height: 4rem;                         // Hauteur fixée à 4rem (≈64px)
-    background: #1f1525;                  // Couleur de fond foncée
-    display: flex;                        // Flexbox pour centrer le contenu
-    align-items: center;                  // Centre verticalement
-    justify-content: center;              // Centre horizontalement
-    font-weight: bold;                    // Texte en gras
-    color: #fff;                          // Couleur du texte blanche
-    z-index: 10;                          // Empilage au-dessus des autres éléments
-  }
-
   /* Hero full-bleed avec overlay à 0.4 */
   &__hero {
     position: relative;                   // Conteneur relatif pour l’overlay
