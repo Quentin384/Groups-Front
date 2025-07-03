@@ -5,7 +5,7 @@ import { AlertComponent } from '../../../shared/components/alert/alert.component
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { of, Observable, throwError } from 'rxjs';
 import { catchError, delay, finalize } from 'rxjs/operators';
-
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 /**
  * Interface pour un groupe d'utilisateur
  */
@@ -25,7 +25,7 @@ interface UserGroup {
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, AlertComponent, ButtonComponent, RouterLink]
+  imports: [CommonModule, AlertComponent, ButtonComponent, LoaderComponent, ]
 })
 export class UserDashboardComponent implements OnInit {
   /**

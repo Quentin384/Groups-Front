@@ -32,7 +32,11 @@
         <input type="checkbox" [(ngModel)]="criteria.mixAges" />    
     </label>
 
-    <button (click)="generateGroups()" class="btn-genrate">
-        generate Groups
-    </button>
+
+        <a routerLink="/groups">
+    <app-button (click)="generateGroups()" class="btn-genrate" label="Generate groups">
+
+    </app-button>
+        </a>
+
 </div>

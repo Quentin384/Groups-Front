@@ -14,7 +14,7 @@ import { error } from './pages/error/error.component';
 
 export const routes: Routes = [
   { path: 'dashboard/admin', component: AdminDashboardComponent, data: { title: 'Admin Dashboard' } },
-  { path: 'dashboard/user', component: UserDashboardComponent, data: { title: 'User Dashboard' } },
+  { path: 'groups', component: UserDashboardComponent, data: { title: 'User Dashboard' } },
   { path: 'list/details', component: listDetails, data: { title: 'List Details' } },
   { path: 'login', component: Login, data: { title: 'Login' } },
   { path: 'register', component: Register,  data: { title: 'Register' } },
