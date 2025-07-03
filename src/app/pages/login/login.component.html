@@ -1,25 +1,28 @@
-
 <form [formGroup]="loginForm">
   <app-input
-    label="email"
+    id="email"
+    label="Email"
     type="email"
     formControlName="email"
     placeholder="Email"
-  />
+  ></app-input>
 
   <app-input
+    id="password"
     label="Mot de passe"
     type="password"
     formControlName="password"
     placeholder="Password"
-  />
+  ></app-input>
+
+  <a class="Password-text" routerLink="/verifyemail">
+    Forgot Password?
+  </a>
+
+  <app-button
+    label="Login"
+    color="primary"
+    (click)="onSubmit()"
+       routerLink="/list"
+  ></app-button>
 </form>
-
-<a class="Password-text" routerLink="/verifyemail">
-  forgot Password?</a>
-
-<app-button
-  label="Login"
-  color="primary"
-  routerLink="/list"
-  />
