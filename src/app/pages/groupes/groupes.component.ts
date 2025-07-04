@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
-import { AlertComponent } from '../../../shared/components/alert/alert.component';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { Router } from '@angular/router';
+import { AlertComponent } from '../../shared/components/alert/alert.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { of, Observable, throwError } from 'rxjs';
 import { catchError, delay, finalize } from 'rxjs/operators';
 
@@ -22,12 +22,12 @@ interface UserGroup {
  */
 @Component({
   selector: 'app-user-dashboard',
-  templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.scss'],
+  templateUrl: './groupes.component.html',
+  styleUrls: ['./groupes.component.scss'],
   standalone: true,
-  imports: [CommonModule, AlertComponent, ButtonComponent, RouterLink]
+  imports: [CommonModule, AlertComponent, ButtonComponent]
 })
-export class UserDashboardComponent implements OnInit {
+export class GroupesComponent implements OnInit {
   /**
    * Constructeur avec injection du Router
    */

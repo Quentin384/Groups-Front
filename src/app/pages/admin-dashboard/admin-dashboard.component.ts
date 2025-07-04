@@ -3,7 +3,7 @@ import { of, Observable, throwError } from 'rxjs';
 import { catchError, delay, finalize } from 'rxjs/operators';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { AlertComponent } from '../../../shared/components/alert/alert.component';
+import { AlertComponent } from '../../shared/components/alert/alert.component';
 
 /**
  * Interface pour les statistiques du tableau de bord admin

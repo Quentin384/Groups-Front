@@ -1,60 +1,111 @@
-# GroupsFront dev
+# :busts_in_silhouette: Groups-Front
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Une application Angular (v3) pour la création et la gestion de groupes d'utilisateurs, avec des fonctionnalités de génération automatique basée sur des critères spécifiques.
 
-## Development server.
+Projet développé par [Quentin Zampieri](https://github.com/Quentin384), [Ennio PILIA](https://github.com/EnnioPilia), [Laurent Lefebvre--Ossola
+](https://github.com/Raidel-28) & [Christopher PEREZ](https://github.com/Chr1stopherPerez), en réponse à un brief proposé durant notre formation à [SIMPLON](https://www.simplon.co/).
+ Cette version 3 du projet intègre des fonctionnalités avancées de gestion de groupes et une interface utilisateur améliorée.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## Contexte & Objectif
+
+L'application "Groups-Front" est conçue pour faciliter la création et la gestion de groupes d'utilisateurs. Elle permet de :
+
+- Créer et gérer des groupes d'utilisateurs
+- Générer automatiquement des groupes selon différents critères
+- Visualiser les détails des groupes
+- Gérer les membres des groupes
+- Authentifier les utilisateurs avec vérification d'email
+
+## Fonctionnalités
+
+- **Gestion des Groupes** : création, consultation, modification, suppression
+- **Génération Automatique** : création de groupes basée sur des critères comme le mélange d'anciens DWWM et le mélange des âges
+- **Gestion des Membres** : ajout, suppression, visualisation des membres d'un groupe
+- **Authentification** : inscription, connexion, vérification d'email
+- **Tableau de Bord Admin** : fonctionnalités spécifiques pour les administrateurs
+- **Interface Responsive** : compatible avec différents appareils
+
+## Structure du projet
+
+```
+groups-front/
+├── src/
+│   ├── app/
+│   │   ├── pages/                  # Composants de pages
+│   │   │   ├── admin-dashboard/    # Tableau de bord administrateur
+│   │   │   ├── error/              # Page d'erreur 404
+│   │   │   ├── generate-groups/    # Génération de groupes
+│   │   │   ├── groupes/            # Gestion des groupes
+│   │   │   ├── home/               # Page d'accueil
+│   │   │   ├── list/               # Liste des éléments
+│   │   │   ├── listDetails/        # Détails de liste
+│   │   │   ├── login/              # Connexion
+│   │   │   ├── members/            # Gestion des membres
+│   │   │   ├── register/           # Inscription
+│   │   │   └── verify-email/       # Vérification d'email
+│   │   ├── shared/                 # Composants partagés
+│   │   │   └── components/         # Composants réutilisables
+│   │   ├── app.component.ts        # Composant racine
+│   │   ├── app.routes.ts           # Configuration des routes
+│   │   └── app.config.ts           # Configuration de l'application
+│   ├── assets/                     # Ressources statiques
+│   └── environments/               # Configurations d'environnement
+├── docs/                           # Documentation
+│   └── specifications/             # Spécifications du projet
+├── README.md                       # Documentation utilisateur
+└── angular.json                    # Configuration Angular
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Prérequis
 
-## Code scaffolding.
+- **Node.js** (version 16 ou supérieure)
+- **npm** (généralement installé avec Node.js)
+- **Angular CLI** (version 19.2.9)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation & Exécution
 
-```bash
-ng generate component component-name
-```
+1. **Cloner le projet**
+   ```bash
+   git clone https://github.com/Quentin384/Groups-Front.git
+   cd Groups-Front
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. **Installer les dépendances**
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate --help
-```
+3. **Lancer le serveur de développement**
+   ```bash
+   ng serve
+   ```
 
-## Building
+4. **Accéder à l'application**
+   Ouvrez votre navigateur et accédez à `http://localhost:4200/`
 
-To build the project run:
+## Compilation pour la production
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Pour compiler l'application pour la production :
 
 ```bash
-ng e2e
+ng build --prod
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Les fichiers compilés seront stockés dans le répertoire `dist/`.
 
-## Additional Resources
+## Scénario d'utilisation rapide
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **S'inscrire ou se connecter** via les pages d'inscription ou de connexion
+2. **Accéder à la page de génération de groupes**
+3. **Définir les critères** de génération (nombre de groupes, mélange d'anciens DWWM, mélange des âges)
+4. **Générer les groupes** en cliquant sur le bouton de génération
+5. **Visualiser les groupes générés** dans la section des groupes
+6. **Consulter les détails** d'un groupe spécifique
 
+## Captures d'écran
+
+![](Capture.png)  
+![](Capture2.png)  
+![](Capture3.png)

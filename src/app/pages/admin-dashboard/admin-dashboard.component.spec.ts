@@ -6,7 +6,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { CommonModule, DatePipe } from '@angular/common';
-import { AlertComponent } from '../../../shared/components/alert/alert.component';
+import { AlertComponent } from '../../shared/components/alert/alert.component';
 import { of, throwError } from 'rxjs';
 import { By } from '@angular/platform-browser';
 

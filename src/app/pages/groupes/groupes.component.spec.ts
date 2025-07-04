@@ -4,10 +4,10 @@
  * la gestion des erreurs et les autres fonctionnalités du tableau de bord utilisateur.
  */
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { UserDashboardComponent } from './user-dashboard.component';
+import { UserDashboardComponent } from './groupes.component';
 import { CommonModule } from '@angular/common';
-import { AlertComponent } from '../../../shared/components/alert/alert.component';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { AlertComponent } from '../../shared/components/alert/alert.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { of, throwError } from 'rxjs';
 import { By } from '@angular/platform-browser';
 

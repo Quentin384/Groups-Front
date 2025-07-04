@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { AdminDashboardComponent } from './pages/dashboard/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './pages/dashboard/user-dashboard/user-dashboard.component';
-import { listDetails } from './pages/dashboard/listDetails/listDetails';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { GroupesComponent } from './pages/groupes/groupes.component';
+import { listDetails } from './pages/listDetails/listDetails';
 import { Login } from './pages/login/login.component';
 import { Register } from './pages/register/register.component';
 import { Home } from './pages/home/home.component';
@@ -14,7 +14,7 @@ import { error } from './pages/error/error.component';
 
 export const routes: Routes = [
   { path: 'dashboard/admin', component: AdminDashboardComponent, data: { title: 'Admin Dashboard' } },
-  { path: 'dashboard/user', component: UserDashboardComponent, data: { title: 'User Dashboard' } },
+  { path: 'groupes', component: GroupesComponent, data: { title: 'Groupes' } },
   { path: 'list/details', component: listDetails, data: { title: 'List Details' } },
   { path: 'login', component: Login, data: { title: 'Login' } },
   { path: 'register', component: Register,  data: { title: 'Register' } },
