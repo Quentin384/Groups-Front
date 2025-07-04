@@ -1,4 +1,5 @@
-@import '../../../styles/variables';
+@use '../../../styles/variables' as vars;
+@use 'sass:color';
 
 footer {
   position: fixed;
@@ -7,28 +8,28 @@ footer {
   right: 0;
   width: 100%;
   z-index: 10;
-  padding: $spacing-md;
+  padding: vars.$spacing-md;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $dark-background, $primary-color);
-  border-top: 3px solid $tertiary-color;
-  box-shadow: $modal-shadow;
+  background: linear-gradient(135deg, vars.$dark-background, vars.$primary-color);
+  border-top: 3px solid vars.$tertiary-color;
+  box-shadow: vars.$modal-shadow;
 }
 
 .copyright {
-  margin-bottom: $spacing-md;
-  color: $white;
-  font-weight: $font-weight-bold;
+  margin-bottom: vars.$spacing-md;
+  color: vars.$white;
+  font-weight: vars.$font-weight-bold;
   letter-spacing: 1px;
-  text-shadow: 0 0 5px $tertiary-color;
+  text-shadow: 0 0 5px vars.$tertiary-color;
   animation: glow 3s infinite alternate;
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 5px $tertiary-color; }
-  100% { text-shadow: 0 0 15px $tertiary-color, 0 0 20px $primary-color; }
+  0% { text-shadow: 0 0 5px vars.$tertiary-color; }
+  100% { text-shadow: 0 0 15px vars.$tertiary-color, 0 0 20px vars.$primary-color; }
 }
 
 .footer-links {
@@ -39,26 +40,26 @@ footer {
 }
 
 .footer-btn {
-  margin: 0 $spacing-sm;
-  padding: $spacing-xs $spacing-sm;
+  margin: 0 vars.$spacing-sm;
+  padding: vars.$spacing-xs vars.$spacing-sm;
   transition: all 0.3s ease;
   position: relative;
-  color: $white;
+  color: vars.$white;
   background: #ff0095; /* Same as composable button */
   border: none;
   cursor: pointer;
-  font-weight: $font-weight-bold;
-  border-radius: $border-radius-md;
+  font-weight: vars.$font-weight-bold;
+  border-radius: vars.$border-radius-md;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-xs; /* Add gap between icon and text */
+  gap: vars.$spacing-xs; /* Add gap between icon and text */
 
   /* Simple hover effect without animation */
   &:hover {
     background-color: #b300a4;
-    color: $white;
+    color: vars.$white;
   }
 
   &:active {
@@ -67,8 +68,8 @@ footer {
 }
 
 @keyframes pulse-border {
-  0% { box-shadow: 0 0 5px #ff0095, 0 0 10px $tertiary-color; }
-  100% { box-shadow: 0 0 10px #ff0095, 0 0 20px $tertiary-color; }
+  0% { box-shadow: 0 0 5px #ff0095, 0 0 10px vars.$tertiary-color; }
+  100% { box-shadow: 0 0 10px #ff0095, 0 0 20px vars.$tertiary-color; }
 }
 
 .icon-hidden {
@@ -79,7 +80,7 @@ footer {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  color: $white;
+  color: vars.$white;
   opacity: 1;
   min-width: 20px;
   min-height: 20px;
@@ -99,7 +100,7 @@ footer {
 
 .github-btn {
   background: #ff0095;
-  color: $white;
+  color: vars.$white;
 
   &::after {
     display: none;
@@ -107,7 +108,7 @@ footer {
 }
 
 span:not(.icon-hidden) {
-  font-size: $font-size-lg;
+  font-size: vars.$font-size-lg;
 }
 
 .modal-overlay {
@@ -116,7 +117,7 @@ span:not(.icon-hidden) {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $black-40;
+  background-color: vars.$black-40;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,47 +125,47 @@ span:not(.icon-hidden) {
 }
 
 .modal-content {
-  background-color: $card-bg;
-  color: $white;
-  padding: $spacing-lg;
-  border-radius: $border-radius-lg;
+  background-color: vars.$card-bg;
+  color: vars.$white;
+  padding: vars.$spacing-lg;
+  border-radius: vars.$border-radius-lg;
   width: 90%;
   max-width: 400px;
-  box-shadow: $modal-shadow;
-  border: 1px solid $card-border;
+  box-shadow: vars.$modal-shadow;
+  border: 1px solid vars.$card-border;
   animation: modalPop 0.3s ease-out;
 }
 
 .modal-title {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bolder;
-  margin-bottom: $spacing-sm;
-  color: $tertiary-color;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bolder;
+  margin-bottom: vars.$spacing-sm;
+  color: vars.$tertiary-color;
   text-align: center;
 }
 
 .modal-text {
-  font-size: $font-size-sm;
+  font-size: vars.$font-size-sm;
   line-height: 1.5;
-  margin-bottom: $spacing-md;
-  color: $white-60;
+  margin-bottom: vars.$spacing-md;
+  color: vars.$white-60;
   text-align: left;
 }
 
 .modal-close-btn {
   display: block;
-  margin: $spacing-md auto 0;
-  padding: $spacing-xs $spacing-md;
-  background-color: $error-color;
-  color: $white;
+  margin: vars.$spacing-md auto 0;
+  padding: vars.$spacing-xs vars.$spacing-md;
+  background-color: vars.$error-color;
+  color: vars.$white;
   border: none;
-  border-radius: $border-radius-md;
-  font-weight: $font-weight-bold;
+  border-radius: vars.$border-radius-md;
+  font-weight: vars.$font-weight-bold;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: darken($error-color, 10%);
+    background-color: color.adjust(vars.$error-color, $lightness: -10%);
     transform: scale(1.05);
   }
 }
@@ -177,7 +178,7 @@ span:not(.icon-hidden) {
 /* Responsive styles */
 @media (max-width: 768px) {
   footer {
-    padding: $spacing-sm;
+    padding: vars.$spacing-sm;
   }
 
   .footer-links {
@@ -188,8 +189,8 @@ span:not(.icon-hidden) {
   }
 
   .footer-btn {
-    margin: 0 $spacing-xs;
-    padding: $spacing-xs;
+    margin: 0 vars.$spacing-xs;
+    padding: vars.$spacing-xs;
   }
 
   span:not(.icon-hidden) {
@@ -203,7 +204,7 @@ span:not(.icon-hidden) {
 
 @media (max-width: 480px) {
   footer {
-    padding: $spacing-xs;
+    padding: vars.$spacing-xs;
   }
 
   .footer-links {
@@ -214,8 +215,8 @@ span:not(.icon-hidden) {
 
   .footer-btn {
     font-size: 0.9rem;
-    margin: 0 $spacing-xs;
-    padding: $spacing-xs;
+    margin: 0 vars.$spacing-xs;
+    padding: vars.$spacing-xs;
 
     /* Hide text, show only icons */
     .btn-text {
