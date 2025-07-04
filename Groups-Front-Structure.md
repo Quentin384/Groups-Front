@@ -12,20 +12,6 @@ Groups-Front/
 │   │   └─ Briefs_projet_fil_rouge-Création-de-groupes.pdf
 │   └─ README.md
 │
-├─ .github/
-│   └─ workflows/
-│       └─ front-ci.yml
-│
-├─ e2e/
-│   ├─ src/
-│   │   ├─ fixtures/
-│   │   ├─ support/
-│   │   └─ integration/
-│   │       ├─ groups.spec.ts
-│   │       └─ auth.spec.ts
-│   ├─ cypress.config.ts
-│   └─ tsconfig.json
-│
 ├─ node_modules/                  # Dependencies directory
 │
 ├─ public/                        # Public assets directory
@@ -48,104 +34,59 @@ Groups-Front/
 │   │   │   │   ├─ user.service.ts
 │   │   │   │   └─ notification.service.ts
 │   │   │   │
-│   │   │   ├─ models/                 # interfaces et types
-│   │   │   │   ├─ user.model.ts
-│   │   │   │   ├─ group.model.ts
-│   │   │   │   ├─ auth.model.ts
-│   │   │   │   └─ api-response.model.ts
-│   │   │   │
-│   │   │   └─ core.module.ts
+│   │   │   └─ models/                 # interfaces et types
+│   │   │       ├─ user.model.ts
+│   │   │       ├─ group.model.ts
+│   │   │       ├─ auth.model.ts
+│   │   │       └─ api-response.model.ts
 │   │   │
 │   │   ├─ shared/                     # composants réutilisables
-│   │   │   ├─ components/
-│   │   │   │   ├─ button/
-│   │   │   │   │   ├─ button.component.ts
-│   │   │   │   │   ├─ button.component.html
-│   │   │   │   │   ├─ button.component.scss
-│   │   │   │   │   └─ button.component.spec.ts
-│   │   │   │   │
-│   │   │   │   ├─ card/
-│   │   │   │   ├─ loader/
-│   │   │   │   └─ alert/
-│   │   │   │
-│   │   │   ├─ directives/
-│   │   │   │   ├─ autofocus.directive.ts
-│   │   │   │   └─ permission.directive.ts
-│   │   │   │
-│   │   │   ├─ pipes/
-│   │   │   │   ├─ date-format.pipe.ts
-│   │   │   │   └─ truncate.pipe.ts
-│   │   │   │
-│   │   │   ├─ utils/
-│   │   │   │   ├─ constants.ts
-│   │   │   │   └─ helpers.ts
-│   │   │   │
-│   │   │   └─ shared.module.ts
-│   │   │
-│   │   ├─ features/                   # modules fonctionnels
-│   │   │   ├─ groups/
-│   │   │   │   ├─ group-list/
-│   │   │   │   │   ├─ group-list.component.ts
-│   │   │   │   │   ├─ group-list.component.html
-│   │   │   │   │   ├─ group-list.component.scss
-│   │   │   │   │   └─ group-list.component.spec.ts
-│   │   │   │   │
-│   │   │   │   ├─ group-detail/
-│   │   │   │   │   ├─ group-detail.component.ts
-│   │   │   │   │   ├─ group-detail.component.html
-│   │   │   │   │   ├─ group-detail.component.scss
-│   │   │   │   │   └─ group-detail.component.spec.ts
-│   │   │   │   │
-│   │   │   │   ├─ group-form/
-│   │   │   │   │   ├─ group-form.component.ts
-│   │   │   │   │   ├─ group-form.component.html
-│   │   │   │   │   ├─ group-form.component.scss
-│   │   │   │   │   └─ group-form.component.spec.ts
-│   │   │   │   │
-│   │   │   │   ├─ components/
-│   │   │   │   │   ├─ group-member-list/
-│   │   │   │   │   └─ group-actions/
-│   │   │   │   │
-│   │   │   │   ├─ models/
-│   │   │   │   │   └─ group-creation.model.ts
-│   │   │   │   │
-│   │   │   │   ├─ services/
-│   │   │   │   │   └─ group-creation.service.ts
-│   │   │   │   │
-│   │   │   │   ├─ groups-routing.module.ts
-│   │   │   │   └─ groups.module.ts
-│   │   │   │
-│   │   │   ├─ users/
-│   │   │   │   ├─ user-list/
-│   │   │   │   ├─ user-detail/
-│   │   │   │   ├─ users-routing.module.ts
-│   │   │   │   └─ users.module.ts
-│   │   │   │
-│   │   │   └─ profile/
-│   │   │       ├─ profile-view/
-│   │   │       ├─ profile-edit/
-│   │   │       ├─ profile-routing.module.ts
-│   │   │       └─ profile.module.ts
-│   │   │
-│   │   ├─ layouts/                    # composants de mise en page
-│   │   │   ├─ main-layout/
-│   │   │   │   ├─ main-layout.component.ts
-│   │   │   │   ├─ main-layout.component.html
-│   │   │   │   └─ main-layout.component.scss
-│   │   │   │
-│   │   │   ├─ components/
-│   │   │   │   ├─ header/
-│   │   │   │   ├─ sidebar/
-│   │   │   │   └─ footer/
-│   │   │   │
-│   │   │   └─ layouts.module.ts
+│   │   │   └─ components/
+│   │   │       ├─ alert/
+│   │   │       ├─ back.button/
+│   │   │       ├─ button/
+│   │   │       │   ├─ button.component.ts
+│   │   │       │   ├─ button.component.html
+│   │   │       │   ├─ button.component.scss
+│   │   │       │   └─ button.component.spec.ts
+│   │   │       │
+│   │   │       ├─ card/
+│   │   │       ├─ checkbox/
+│   │   │       ├─ footer/
+│   │   │       ├─ header/
+│   │   │       ├─ input/
+│   │   │       ├─ loader/
+│   │   │       └─ select-input/
 │   │   │
 │   │   ├─ pages/                      # pages principales
+│   │   │   ├─ admin-dashboard/
+│   │   │   │   ├─ admin-dashboard.component.ts
+│   │   │   │   ├─ admin-dashboard.component.html
+│   │   │   │   ├─ admin-dashboard.component.scss
+│   │   │   │   └─ admin-dashboard.component.spec.ts
+│   │   │   │
+│   │   │   ├─ error/
+│   │   │   │
+│   │   │   ├─ generate-groups/
+│   │   │   │
+│   │   │   ├─ groupes/
+│   │   │   │   ├─ groupes.component.ts
+│   │   │   │   ├─ groupes.component.html
+│   │   │   │   └─ groupes.component.scss
+│   │   │   │
+│   │   │   ├─ home/
+│   │   │   │
+│   │   │   ├─ list/
+│   │   │   │
+│   │   │   ├─ listDetails/
+│   │   │   │
 │   │   │   ├─ login/
 │   │   │   │   ├─ login.component.ts
 │   │   │   │   ├─ login.component.html
 │   │   │   │   ├─ login.component.scss
 │   │   │   │   └─ login.component.spec.ts
+│   │   │   │
+│   │   │   ├─ members/
 │   │   │   │
 │   │   │   ├─ register/
 │   │   │   │   ├─ register.component.ts
@@ -153,22 +94,10 @@ Groups-Front/
 │   │   │   │   ├─ register.component.scss
 │   │   │   │   └─ register.component.spec.ts
 │   │   │   │
-│   │   │   ├─ home/
-│   │   │   │   ├─ home.component.ts
-│   │   │   │   ├─ home.component.html
-│   │   │   │   ├─ home.component.scss
-│   │   │   │   └─ home.component.spec.ts
-│   │   │   │
-│   │   │   ├─ dashboard/
-│   │   │   │   ├─ dashboard.component.ts
-│   │   │   │   ├─ dashboard.component.html
-│   │   │   │   ├─ dashboard.component.scss
-│   │   │   │   └─ dashboard.component.spec.ts
-│   │   │   │
-│   │   │   └─ not-found/
-│   │   │       ├─ not-found.component.ts
-│   │   │       ├─ not-found.component.html
-│   │   │       └─ not-found.component.scss
+│   │   │   └─ verify-email/
+│   │   │
+│   │   ├─ styles/                     # styles globaux
+│   │   │   └─ _variables.scss
 │   │   │
 │   │   ├─ app.component.ts
 │   │   ├─ app.component.html
@@ -182,17 +111,6 @@ Groups-Front/
 │   │   ├─ icons/
 │   │   └─ fonts/
 │   │
-│   ├─ environments/                   # configuration par environnement
-│   │   ├─ environment.ts
-│   │   ├─ environment.development.ts
-│   │   └─ environment.production.ts
-│   │
-│   ├─ styles/                         # styles globaux
-│   │   ├─ tailwind.scss
-│   │   ├─ _variables.scss
-│   │   ├─ _mixins.scss
-│   │   └─ _themes.scss
-│   │
 │   ├─ index.html
 │   ├─ main.ts
 │   └─ styles.scss
@@ -200,25 +118,25 @@ Groups-Front/
 ├─ .editorconfig
 ├─ .gitignore
 ├─ angular.json
+├─ karma.conf.js
 ├─ package.json
 ├─ package-lock.json
-├─ tailwind.config.js
+├─ run-tests.bat
 ├─ tsconfig.json
 ├─ tsconfig.app.json
 ├─ tsconfig.spec.json
 ├─ README.md
-└─ CHANGELOG.md
+└─ Groups-Front-Structure.md
 ```
 
 ## Notes sur la Structure
 
-Cette structure suit les bonnes pratiques Angular pour une application de création de groupes (V3) avec :
+Cette structure suit une architecture simplifiée pour l'application de création de groupes (V3) avec :
 
-- **Architecture modulaire** : Core, Shared, Features, Layouts, Pages
-- **Découpage par fonctionnalités** : Groups, Users, Profile
+- **Architecture simplifiée** : Core, Shared, Pages
+- **Organisation par pages** : Toutes les pages sont directement sous le dossier pages
+- **Composants partagés** : Tous les composants réutilisables sont dans shared/components
 - **Séparation des responsabilités** : Services, Components, Models
-- **Tests** : Unitaires (.spec.ts) et E2E (Cypress)
-- **Styles** : Configuration Tailwind CSS et SCSS
-- **CI/CD** : Workflow GitHub Actions
+- **Tests** : Unitaires (.spec.ts)
 
-La structure est conçue pour faciliter la maintenance, l'évolutivité et le respect des principes SOLID.
+La structure a été simplifiée pour faciliter la maintenance et la compréhension du code, tout en conservant une bonne organisation des fichiers.
