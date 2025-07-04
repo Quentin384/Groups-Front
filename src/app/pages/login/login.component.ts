@@ -3,42 +3,30 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppInputComponent } from '../../shared/components/input/input.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
-import { Router, RouterLink } from '@angular/router';
-import { userService } from '../../core/services/user.service'; // adapte le chemin
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, AppInputComponent, ButtonComponent, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule,AppInputComponent,ButtonComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class Login {
   loginForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private userService: userService,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
+        fullName: ['', [Validators.required, Validators.minLength(3)]],  // <-- nouveau champ
+
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
-
   onSubmit() {
-    if (this.loginForm.valid) {
-      const credentials = this.loginForm.value;
-      this.userService.loginUser(credentials).subscribe({
-        next: (response) => {
-          console.log('Login success:', response);
-          this.router.navigate(['/list']); // Redirection après succès
-        },
-        error: (err) => {
-          console.error('Login failed:', err);
-        }
-      });
-    }
+  if (this.loginForm.valid) {
+    console.log(this.loginForm.value);
+    // Traiter la connexion ici
   }
+}
+
 }
