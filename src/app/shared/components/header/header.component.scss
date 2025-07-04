@@ -1,0 +1,21 @@
+.home__header {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  height: 4rem;
+  padding: 0 1rem;
+  background: #1f1525;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.home__header-title {
+  flex: 1;            
+  text-align: center; 
+  margin: 0;
+}
+
+.home__header-spacer {
+  width: 2.5rem;      
+}
