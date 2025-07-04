@@ -4,10 +4,15 @@
 
 ```
 Groups-Front/
+├─ .angular/                      # Angular cache directory
+├─ .idea/                         # IntelliJ IDEA configuration directory
+├─ .vscode/                       # Visual Studio Code configuration directory
 ├─ docs/
 │   ├─ wireframes/
 │   │   ├─ maquette_1.PNG
-│   │   └─ maquette_2.PNG
+│   │   ├─ mauqette_2.PNG
+│   │   ├─ generate_groups.png
+│   │   └─ Mouquette 3.png
 │   ├─ specifications/
 │   │   └─ Briefs_projet_fil_rouge-Création-de-groupes.pdf
 │   └─ README.md
