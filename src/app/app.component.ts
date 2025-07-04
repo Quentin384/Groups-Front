@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./shared/components/footer/footer.component";
-import { Header } from "./shared/header/header.component";
+import { Header } from "./shared/components/header/header.component";
 import { GenerateGroupsComponent } from "./pages/generate-groups/generate-groups.component";
 
 @Component({
