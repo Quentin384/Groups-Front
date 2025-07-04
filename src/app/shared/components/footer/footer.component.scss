@@ -1,10 +1,122 @@
+@import '../../../styles/variables';
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $dark-background, $primary-color);
+  border-top: 3px solid $tertiary-color;
+  box-shadow: $modal-shadow;
+}
+
+.copyright {
+  margin-bottom: $spacing-md;
+  color: $white;
+  font-weight: $font-weight-bold;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px $tertiary-color;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px $tertiary-color; }
+  100% { text-shadow: 0 0 15px $tertiary-color, 0 0 20px $primary-color; }
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-btn {
+  margin: 0 $spacing-sm;
+  padding: $spacing-xs $spacing-sm;
+  transition: all 0.3s ease;
+  position: relative;
+  color: $white;
+  background: #ff0095; /* Same as composable button */
+  border: none;
+  cursor: pointer;
+  font-weight: $font-weight-bold;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs; /* Add gap between icon and text */
+
+  /* Simple hover effect without animation */
+  &:hover {
+    background-color: #b300a4;
+    color: $white;
+  }
+
+  &:active {
+    background-color: #b300a4;
+  }
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 5px #ff0095, 0 0 10px $tertiary-color; }
+  100% { box-shadow: 0 0 10px #ff0095, 0 0 20px $tertiary-color; }
+}
+
+.icon-hidden {
+  display: none;
+}
+
+.icon-visible {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  opacity: 1;
+  min-width: 20px;
+  min-height: 20px;
+  margin-right: 4px;
+  visibility: visible !important;
+  z-index: 2;
+  font-size: 20px; /* Font Awesome size */
+
+  svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.github-btn {
+  background: #ff0095;
+  color: $white;
+
+  &::after {
+    display: none;
+  }
+}
+
+span:not(.icon-hidden) {
+  font-size: $font-size-lg;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $black-40;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,12 +124,106 @@
 }
 
 .modal-content {
-  background-color: white;
-  color: black;
-  padding: 1.5rem;
-  border-radius: 8px;
+  background-color: $card-bg;
+  color: $white;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: $modal-shadow;
+  border: 1px solid $card-border;
+  animation: modalPop 0.3s ease-out;
 }
 
+.modal-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bolder;
+  margin-bottom: $spacing-sm;
+  color: $tertiary-color;
+  text-align: center;
+}
+
+.modal-text {
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  margin-bottom: $spacing-md;
+  color: $white-60;
+  text-align: left;
+}
+
+.modal-close-btn {
+  display: block;
+  margin: $spacing-md auto 0;
+  padding: $spacing-xs $spacing-md;
+  background-color: $error-color;
+  color: $white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: darken($error-color, 10%);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  footer {
+    padding: $spacing-sm;
+  }
+
+  .footer-links {
+    /* Keep buttons in a row */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-btn {
+    margin: 0 $spacing-xs;
+    padding: $spacing-xs;
+  }
+
+  span:not(.icon-hidden) {
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: $spacing-xs;
+  }
+
+  .footer-links {
+    /* Ensure buttons stay in a row */
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footer-btn {
+    font-size: 0.9rem;
+    margin: 0 $spacing-xs;
+    padding: $spacing-xs;
+
+    /* Hide text, show only icons */
+    .btn-text {
+      display: none;
+    }
+
+    .icon-visible {
+      margin-right: 0;
+    }
+  }
+}
