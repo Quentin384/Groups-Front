@@ -1,0 +1,41 @@
+<section class="admin-detail">
+
+  <div class="content">
+    <h2 class="list-name">{{ group.name }}</h2>
+    <h3 class="section-title">Members</h3>
+
+    <ul class="member-list">
+      <li *ngFor="let m of group.members" class="member-card">
+        <img [src]="m.photo" alt="{{ m.firstName }} {{ m.lastName }}" class="avatar" />
+
+        <div class="member-info">
+          <p class="name">{{ m.firstName }} {{ m.lastName }}</p>
+          <p class="sub-info">
+            Langue : {{ m.languageLevel }}<br />
+            Technique : {{ m.techLevel }}/5<br />
+            Ancien DWWN : {{ m.isFormerDwwn ? 'Oui' : 'Non' }}<br />
+            Profil : {{ m.profile }}<br />
+            Âge : {{ m.age }} ans
+          </p>
+        </div>
+
+        <button class="edit-btn" (click)="openEdit(m.id)">✏️</button>
+      </li>
+    </ul>
+  </div>
+
+          <a routerLink="/members">
+          <app-button
+            label="Ajouter des membres"
+            color="secondary"
+            type="button">
+          </app-button>
+          </a>
+          <a routerLink="/generate-groups">
+        <app-button
+          [label]="'Créer un groupe'"
+          [color]="'primary'">
+        </app-button>
+      </a>
+
+</section>

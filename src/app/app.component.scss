@@ -1,0 +1,15 @@
+@use './styles/variables' as vars;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Add padding to the bottom of the page to prevent footer overlap
+:host::after {
+  content: '';
+  display: block;
+  height: 100px; // Approximate height of the footer
+  margin-bottom: vars.$spacing-md;
+}

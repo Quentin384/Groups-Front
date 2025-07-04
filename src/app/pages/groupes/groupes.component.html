@@ -1,0 +1,65 @@
+<div class="user-dashboard">
+
+  <h1 class="dashboard-title">Groupes</h1>
+
+  <!-- Affichage de l'alerte en cas d'erreur -->
+  <app-alert
+    *ngIf="errorMessage"
+    [type]="'error'"
+    [message]="errorMessage"
+    [dismissible]="true"
+    (closed)="closeAlert()">
+  </app-alert>
+
+  <!-- Loader pendant le chargement des données -->
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="loader"></div>
+    <p>Chargement des données...</p>
+  </div>
+
+  <!-- Contenu principal (affiché uniquement si pas de chargement) -->
+  <div *ngIf="!isLoading" class="dashboard-content">
+
+    <!-- Carte "My Groups" -->
+    <div class="my-groups-card">
+      <div class="card-header">My Groups</div>
+
+      <div class="card-body">
+        <div class="groups-count">{{ totalGroups }}</div>
+        <div class="groups-label">groupes</div>
+      </div>
+    </div>
+
+    <!-- Liste des groupes de l'utilisateur -->
+    <div class="user-groups-section">
+      <h2>Mes groupes</h2>
+
+      <div class="groups-list">
+        <div *ngFor="let group of userGroups" class="group-card">
+          <div class="group-info">
+            <h3 class="group-name">{{ group.name }}</h3>
+            <p class="group-description">{{ group.description }}</p>
+            <div class="group-meta">
+              <span class="group-members">{{ group.members }} membres</span>
+              <span class="group-date">Créé le {{ group.createdAt | date:'dd/MM/yyyy' }}</span>
+            </div>
+          </div>
+          <div class="group-actions">
+            <app-button
+              [label]="'Détails'"
+              [color]="'primary'"
+              (click)="viewGroupDetails(group.id)">
+            </app-button>
+          </div>
+        </div>
+
+        <!-- Message si aucun groupe -->
+        <div *ngIf="userGroups.length === 0" class="no-groups-message">
+          Vous n'avez pas encore de groupes.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User-dashboard.component.html -->
