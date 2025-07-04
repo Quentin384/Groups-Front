@@ -4,6 +4,7 @@ import { catchError, delay, finalize } from 'rxjs/operators';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AlertComponent } from '../../../shared/components/alert/alert.component';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 
 /**
  * Interface pour les statistiques du tableau de bord admin
@@ -33,7 +34,7 @@ interface Group {
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, AlertComponent, DatePipe, RouterLink]
+  imports: [CommonModule, AlertComponent, DatePipe, RouterLink, LoaderComponent,]
 })
 export class AdminDashboardComponent implements OnInit {
   /**
